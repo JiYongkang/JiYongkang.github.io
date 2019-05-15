@@ -1831,7 +1831,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffede0;
+  background: #6298ed;
 }
 .feed-link,
 .chat {
@@ -2086,6 +2086,14 @@ img:hover {
     transform: scale(1.1);
   }
 }
+.gt-header a,
+.gt-comments a,
+.gt-popup a {
+  border-bottom: none;
+}
+.gt-container .gt-popup .gt-action.is--active:before {
+  top: 0.7em;
+}
 .local-search-pop-overlay {
   position: fixed;
   width: 100%;
@@ -2191,6 +2199,14 @@ img:hover {
   top: 50%;
   transform: translate(-50%, -50%);
   color: #ccc;
+}
+.gt-header a,
+.gt-comments a,
+.gt-popup a {
+  border-bottom: none;
+}
+.gt-container .gt-popup .gt-action.is--active:before {
+  top: 0.7em;
 }
 .page-archive .archive-page-counter {
   position: relative;
