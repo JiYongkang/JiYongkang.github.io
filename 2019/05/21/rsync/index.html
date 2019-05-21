@@ -122,20 +122,20 @@
 
 
 
-  <meta name="description" content="实验环境 深圳、北京各一台Web服务器 两台服务器的文档保持一致   需求描述 服务器A（北京）作为rsync发起端(192.168.22.186) 服务器B（深圳）作为远程rsync服务器(192.168.22.187) 结合inotify机制实现触发式的上行同步  实现思路 在服务器B中配置rsync备份源 在服务器A中发起rsync上行同步 将rsync与inotify-tools工具结合使">
+  <meta name="description" content="关于rsync 一款快速增量备份工具 Remote Sync，远程同步 支持本地复制，或者与其他SSH、rsync主机同步 官方网站：http://rsync.samba.org/   rsync同步源 指备份操作的远程服务器，也称为备份源   基本思路 建立rsyncd.conf配置文件、独立的账号文件 启用rsync的–daemon模式    实验环境 深圳、北京各一台Web服务器 两台服务器">
 <meta name="keywords" content="rsync">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rsync远程同步">
 <meta property="og:url" content="http://yoursite.com/2019/05/21/rsync/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="实验环境 深圳、北京各一台Web服务器 两台服务器的文档保持一致   需求描述 服务器A（北京）作为rsync发起端(192.168.22.186) 服务器B（深圳）作为远程rsync服务器(192.168.22.187) 结合inotify机制实现触发式的上行同步  实现思路 在服务器B中配置rsync备份源 在服务器A中发起rsync上行同步 将rsync与inotify-tools工具结合使">
+<meta property="og:description" content="关于rsync 一款快速增量备份工具 Remote Sync，远程同步 支持本地复制，或者与其他SSH、rsync主机同步 官方网站：http://rsync.samba.org/   rsync同步源 指备份操作的远程服务器，也称为备份源   基本思路 建立rsyncd.conf配置文件、独立的账号文件 启用rsync的–daemon模式    实验环境 深圳、北京各一台Web服务器 两台服务器">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/rsync1.png">
 <meta property="og:image" content="http://yoursite.com/images/rsync2.png">
-<meta property="og:updated_time" content="2019-05-21T16:15:57.107Z">
+<meta property="og:updated_time" content="2019-05-21T16:20:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rsync远程同步">
-<meta name="twitter:description" content="实验环境 深圳、北京各一台Web服务器 两台服务器的文档保持一致   需求描述 服务器A（北京）作为rsync发起端(192.168.22.186) 服务器B（深圳）作为远程rsync服务器(192.168.22.187) 结合inotify机制实现触发式的上行同步  实现思路 在服务器B中配置rsync备份源 在服务器A中发起rsync上行同步 将rsync与inotify-tools工具结合使">
+<meta name="twitter:description" content="关于rsync 一款快速增量备份工具 Remote Sync，远程同步 支持本地复制，或者与其他SSH、rsync主机同步 官方网站：http://rsync.samba.org/   rsync同步源 指备份操作的远程服务器，也称为备份源   基本思路 建立rsyncd.conf配置文件、独立的账号文件 启用rsync的–daemon模式    实验环境 深圳、北京各一台Web服务器 两台服务器">
 <meta name="twitter:image" content="http://yoursite.com/images/rsync1.png">
 
 
@@ -443,7 +443,7 @@
                 
               
 
-              <time title="创建时间：2019-05-21 10:53:25 / 修改时间：12:15:57" itemprop="dateCreated datePublished" datetime="2019-05-21T10:53:25-04:00">2019-05-21</time>
+              <time title="创建时间：2019-05-21 12:20:37 / 修改时间：12:20:20" itemprop="dateCreated datePublished" datetime="2019-05-21T12:20:37-04:00">2019-05-21</time>
             
 
             
@@ -507,22 +507,7 @@
       
 
       
-        <h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
-<li>深圳、北京各一台Web服务器</li>
-<li>两台服务器的文档保持一致</li>
-</ul>
-<p><img src="/images/rsync1.png" alt="rsync1"></p>
-<h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><ul>
-<li>服务器A（北京）作为rsync发起端(192.168.22.186)</li>
-<li>服务器B（深圳）作为远程rsync服务器(192.168.22.187)</li>
-<li>结合inotify机制实现触发式的上行同步</li>
-</ul>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ul>
-<li>在服务器B中配置rsync备份源</li>
-<li>在服务器A中发起rsync上行同步</li>
-<li>将rsync与inotify-tools工具结合使用</li>
-</ul>
-<h2 id="关于rsync"><a href="#关于rsync" class="headerlink" title="关于rsync"></a>关于rsync</h2><ul>
+        <h2 id="关于rsync"><a href="#关于rsync" class="headerlink" title="关于rsync"></a>关于rsync</h2><ul>
 <li>一款快速增量备份工具<ul>
 <li>Remote Sync，远程同步</li>
 <li>支持本地复制，或者与其他SSH、rsync主机同步</li>
@@ -538,6 +523,21 @@
 <li>启用rsync的–daemon模式</li>
 </ul>
 </li>
+</ul>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<li>深圳、北京各一台Web服务器</li>
+<li>两台服务器的文档保持一致</li>
+</ul>
+<p><img src="/images/rsync1.png" alt="rsync1"></p>
+<h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><ul>
+<li>服务器A（北京）作为rsync发起端(192.168.22.186)</li>
+<li>服务器B（深圳）作为远程rsync服务器(192.168.22.187)</li>
+<li>结合inotify机制实现触发式的上行同步</li>
+</ul>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ul>
+<li>在服务器B中配置rsync备份源</li>
+<li>在服务器A中发起rsync上行同步</li>
+<li>将rsync与inotify-tools工具结合使用</li>
 </ul>
 <h2 id="应用示例"><a href="#应用示例" class="headerlink" title="应用示例"></a>应用示例</h2><ul>
 <li>用户backuper，允许下行同步</li>
@@ -902,7 +902,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求描述"><span class="nav-number">2.</span> <span class="nav-text">需求描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现思路"><span class="nav-number">3.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于rsync"><span class="nav-number">4.</span> <span class="nav-text">关于rsync</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用示例"><span class="nav-number">5.</span> <span class="nav-text">应用示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验效果："><span class="nav-number">6.</span> <span class="nav-text">实验效果：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于rsync"><span class="nav-number">1.</span> <span class="nav-text">关于rsync</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求描述"><span class="nav-number">3.</span> <span class="nav-text">需求描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现思路"><span class="nav-number">4.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用示例"><span class="nav-number">5.</span> <span class="nav-text">应用示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验效果："><span class="nav-number">6.</span> <span class="nav-text">实验效果：</span></a></li></ol></div>
             
 
           </div>
