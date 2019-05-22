@@ -122,18 +122,21 @@
 
 
 
-  <meta name="description" content="1.你所需要的软件pppd    ppp拨号服务器pptpd   在pppd拨号的基础上增加pptpd的支持 2. 确定你的内核是否支持mppe1modprobe ppp-compress-18 &amp;amp;&amp;amp; echo ok 如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分 3. 升级内核支持mppe12wget http://poptop.sourceforge.ne">
-<meta name="keywords" content="VPN">
+  <meta name="description" content="关于rsync 一款快速增量备份工具 Remote Sync，远程同步 支持本地复制，或者与其他SSH、rsync主机同步 官方网站：http://rsync.samba.org/   rsync同步源 指备份操作的远程服务器，也称为备份源   基本思路 建立rsyncd.conf配置文件、独立的账号文件 启用rsync的–daemon模式    实验环境 深圳、北京各一台Web服务器 两台服务器">
+<meta name="keywords" content="rsync">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PPTP搭建">
-<meta property="og:url" content="http://yoursite.com/2019/05/15/PPTP搭建/index.html">
+<meta property="og:title" content="rsync远程同步">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/rsync/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="1.你所需要的软件pppd    ppp拨号服务器pptpd   在pppd拨号的基础上增加pptpd的支持 2. 确定你的内核是否支持mppe1modprobe ppp-compress-18 &amp;amp;&amp;amp; echo ok 如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分 3. 升级内核支持mppe12wget http://poptop.sourceforge.ne">
+<meta property="og:description" content="关于rsync 一款快速增量备份工具 Remote Sync，远程同步 支持本地复制，或者与其他SSH、rsync主机同步 官方网站：http://rsync.samba.org/   rsync同步源 指备份操作的远程服务器，也称为备份源   基本思路 建立rsyncd.conf配置文件、独立的账号文件 启用rsync的–daemon模式    实验环境 深圳、北京各一台Web服务器 两台服务器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-15T08:47:13.697Z">
+<meta property="og:image" content="http://yoursite.com/images/rsync1.png">
+<meta property="og:image" content="http://yoursite.com/images/rsync2.png">
+<meta property="og:updated_time" content="2019-05-22T15:10:51.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PPTP搭建">
-<meta name="twitter:description" content="1.你所需要的软件pppd    ppp拨号服务器pptpd   在pppd拨号的基础上增加pptpd的支持 2. 确定你的内核是否支持mppe1modprobe ppp-compress-18 &amp;amp;&amp;amp; echo ok 如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分 3. 升级内核支持mppe12wget http://poptop.sourceforge.ne">
+<meta name="twitter:title" content="rsync远程同步">
+<meta name="twitter:description" content="关于rsync 一款快速增量备份工具 Remote Sync，远程同步 支持本地复制，或者与其他SSH、rsync主机同步 官方网站：http://rsync.samba.org/   rsync同步源 指备份操作的远程服务器，也称为备份源   基本思路 建立rsyncd.conf配置文件、独立的账号文件 启用rsync的–daemon模式    实验环境 深圳、北京各一台Web服务器 两台服务器">
+<meta name="twitter:image" content="http://yoursite.com/images/rsync1.png">
 
 
 
@@ -141,7 +144,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/15/PPTP搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/22/rsync/">
 
 
 
@@ -151,7 +154,7 @@
   };
 </script>
 
-  <title>PPTP搭建 | 酒徒</title>
+  <title>rsync远程同步 | 酒徒</title>
   
 
 
@@ -397,7 +400,7 @@
 
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/PPTP搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/rsync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="酒徒">
@@ -414,7 +417,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PPTP搭建
+          <h1 class="post-title" itemprop="name headline">rsync远程同步
 
               
             
@@ -440,7 +443,7 @@
                 
               
 
-              <time title="创建时间：2019-05-15 16:47:13" itemprop="dateCreated datePublished" datetime="2019-05-15T16:47:13+08:00">2019-05-15</time>
+              <time title="创建时间：2019-05-22 23:10:51" itemprop="dateCreated datePublished" datetime="2019-05-22T23:10:51+08:00">2019-05-22</time>
             
 
             
@@ -500,28 +503,146 @@
       
 
       
-        <h1 id="1-你所需要的软件"><a href="#1-你所需要的软件" class="headerlink" title="1.你所需要的软件"></a>1.你所需要的软件</h1><p>pppd    ppp拨号服务器<br>pptpd   在pppd拨号的基础上增加pptpd的支持</p>
-<h1 id="2-确定你的内核是否支持mppe"><a href="#2-确定你的内核是否支持mppe" class="headerlink" title="2. 确定你的内核是否支持mppe"></a>2. 确定你的内核是否支持mppe</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe ppp-compress-18 &amp;&amp; echo ok</span><br></pre></td></tr></table></figure>
-<p>如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分</p>
-<h1 id="3-升级内核支持mppe"><a href="#3-升级内核支持mppe" class="headerlink" title="3. 升级内核支持mppe"></a>3. 升级内核支持mppe</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://poptop.sourceforge.net/yum/stable/packages/dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">wget http://poptop.sourceforge.net/yum/stable/packages/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br></pre></td></tr></table></figure>
-<p>dkms是一个新的软件，能让你在不编译内核的基础上，外挂一些内核的模块。<br>kernel_ppp_mppe就是mppe支持的内核模块了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">rpm -ivh kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<p>以上二个是为CENTOS加载MPPE[MICROSOFT的加密协议] ..不安装的话就不能使用加密连接<br>ok后重起你的系统</p>
-<h1 id="4-安装ppp"><a href="#4-安装ppp" class="headerlink" title="4. 安装ppp"></a>4. 安装ppp</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install ppp</span><br><span class="line">或者</span><br><span class="line">rpm －Uvh  ppp-2.4.2-b3.i386.rpm</span><br></pre></td></tr></table></figure>
-<p><eg></eg></p>
-<h1 id="5-安装pptpd"><a href="#5-安装pptpd" class="headerlink" title="5. 安装pptpd"></a>5. 安装pptpd</h1><p>(1)使用yum安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/Doylenet.repo</span><br><span class="line">    [doylenet]</span><br><span class="line">    name=Doylenet custom repository for CentOS</span><br><span class="line">    baseurl=http://files.doylenet.net/linux/yum/centos/5/i386/doylenet/</span><br><span class="line">    gpgcheck=1</span><br><span class="line">    gpgkey=http://files.doylenet.net/linux/yum/centos/RPM-GPG-KEY-rdoyle</span><br><span class="line">    enabled=1</span><br><span class="line">    # yum update</span><br><span class="line">    # yum install pptpd</span><br></pre></td></tr></table></figure></p>
-<p>(2)rpm下载安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ntua.gr/pub/net/poptop/pptpd/pptpd-1.3.1/pptpd-1.1.3-4.i386.rpm</span><br><span class="line">rpm －ivh  pptpd-1.1.3-4.i386.rpm</span><br></pre></td></tr></table></figure></p>
-<p>注意32位或者64位版本，否则吃大亏！鄙人就是在64位服务器上装了32位的pptpd，就给搞了很长时间才发现！！ </p>
-<h1 id="6-配置你的pppd和pptpd"><a href="#6-配置你的pppd和pptpd" class="headerlink" title="6. 配置你的pppd和pptpd"></a>6. 配置你的pppd和pptpd</h1><p>/etc/pptpd.conf中需要配置的地方只有几个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">option /etc/ppp/options.pptpd</span><br></pre></td></tr></table></figure></p>
-<p>logwtmp 如果日志里出现类似以下问题一定要注释掉logwtmp！！！！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jun 21 15:39:55 center pppd[1374]: /usr/lib/pptpd/pptpd-logwtmp.so: wrong ELF class: ELFCLASS32</span><br><span class="line">Jun 21 15:39:55 center pppd[1374]: Couldn&apos;t load plugin /usr/lib/pptpd/pptpd-logwtmp.so</span><br><span class="line">localip 192.168.9.1</span><br><span class="line">remoteip 192.168.9.11-30</span><br></pre></td></tr></table></figure></p>
-<p>配置pptpd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/etc/ppp/options.pptpd</span><br><span class="line">    name pptpd</span><br><span class="line">    refuse-pap</span><br><span class="line">    refuse-chap</span><br><span class="line">    refuse-mschap</span><br><span class="line">    require-mschap-v2</span><br><span class="line">    require-mppe-128</span><br><span class="line">    proxyarp</span><br><span class="line">    lock</span><br><span class="line">    nobsdcomp</span><br><span class="line">    novj</span><br><span class="line">    novjccomp</span><br><span class="line">    nologfd</span><br><span class="line">    idle 2592000</span><br><span class="line">    ms-dns 8.8.8.8</span><br><span class="line">    ms-dns 8.8.4.4</span><br></pre></td></tr></table></figure></p>
-<p>编辑 /etc/ppp/chap-secrets<br>添加一个测试用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/ppp/chap-secrets</span><br><span class="line"># Secrets for authentication using CHAP</span><br><span class="line"># client     server   secret      IP addresses</span><br><span class="line">test      pptpd    test           *</span><br></pre></td></tr></table></figure></p>
-<p>第一个test是用户，第二个test是密码 ，*表示任意ip<br>配置文件/etc/sysctl.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line">net.ipv4.ip_forward = 1      修改为“1”内容开启ip转发：</span><br></pre></td></tr></table></figure></p>
-<p>保存、退出后执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
-<p><eg></eg></p>
-<h1 id="7-打开防火墙端口"><a href="#7-打开防火墙端口" class="headerlink" title="7. 打开防火墙端口"></a>7. 打开防火墙端口</h1><p>将Linux服务器的1723端口和47端口打开，并打开GRE协议。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 1723 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 47 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p gre -j ACCEPT</span><br><span class="line">iptables -A POSTROUTING -t nat -s 192.168.9.0/24 -o eth0 -j MASQUERADE</span><br><span class="line">iptables -A INPUT -p UDP --dport 53 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
-<p>这个最蛋疼，开始没注意，能连接上怎么都打不开网页，搞了半天才发现DNS端口没有打开，差点昏死过去！！<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure></p>
-<p><eg></eg></p>
-<h1 id="8-测试pptpd"><a href="#8-测试pptpd" class="headerlink" title="8. 测试pptpd"></a>8. 测试pptpd</h1><p>如果是默认安装，你在任意路径打pptpd就可以了。<br>如果成功，用以下命令看到日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail /var/log/messages</span><br><span class="line">   Feb 10 09:51:46 kdfng pptpd[926]: MGR: Manager process started</span><br><span class="line">   Feb 10 09:51:46 kdfng pptpd[926]: MGR: Maximum of 100 connections available</span><br></pre></td></tr></table></figure></p>
+        <h2 id="关于rsync"><a href="#关于rsync" class="headerlink" title="关于rsync"></a>关于rsync</h2><ul>
+<li>一款快速增量备份工具<ul>
+<li>Remote Sync，远程同步</li>
+<li>支持本地复制，或者与其他SSH、rsync主机同步</li>
+<li>官方网站：<a href="http://rsync.samba.org/" target="_blank" rel="noopener">http://rsync.samba.org/</a></li>
+</ul>
+</li>
+<li>rsync同步源<ul>
+<li>指备份操作的远程服务器，也称为备份源</li>
+</ul>
+</li>
+<li>基本思路<ul>
+<li>建立rsyncd.conf配置文件、独立的账号文件</li>
+<li>启用rsync的–daemon模式</li>
+</ul>
+</li>
+</ul>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<li>深圳、北京各一台Web服务器</li>
+<li>两台服务器的文档保持一致</li>
+</ul>
+<p><img src="/images/rsync1.png" alt="rsync1"></p>
+<h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><ul>
+<li>服务器A（北京）作为rsync发起端(192.168.22.186)</li>
+<li>服务器B（深圳）作为远程rsync服务器(192.168.22.187)</li>
+<li>结合inotify机制实现触发式的上行同步</li>
+</ul>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><ul>
+<li>在服务器B中配置rsync备份源</li>
+<li>在服务器A中发起rsync上行同步</li>
+<li>将rsync与inotify-tools工具结合使用</li>
+</ul>
+<h2 id="应用示例"><a href="#应用示例" class="headerlink" title="应用示例"></a>应用示例</h2><ul>
+<li>用户backuper，允许下行同步</li>
+<li><p>操作的目录为 /var/www/html/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@186 ~]# mkdir -pv /var/www/html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件rsyncd.conf<br>需手动建立，语法类似于Samba配置<br>认证配置auth users、secrets file，不加则为匿名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@186 ~]# vi /etc/rsyncd.conf</span><br><span class="line">uid = nobody</span><br><span class="line">gid = nobody</span><br><span class="line">use chroot = yes</span><br><span class="line">address = 192.168.22.186</span><br><span class="line">port 873</span><br><span class="line">log file = /var/log/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">hosts allow = 192.168.22.0/24</span><br><span class="line">[wwwroot] //共享模块名称</span><br><span class="line">    path = /var/www/html</span><br><span class="line">    comment = Document Root of www1.benet.com</span><br><span class="line">    read only = yes</span><br><span class="line">    dont compress = *.gz *.bz2 *.tgz *.zip *.rar *.z</span><br><span class="line">    auth users = backuper</span><br><span class="line">    secrets file = /etc/rsyncd_users.db</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>rsync账号文件<br>采用“用户名:密码”的记录格式<br>独立的账号数据，不依赖于系统账号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@186 ~]# vi /etc/rsyncd_users.db</span><br><span class="line">backuper:123</span><br><span class="line">[root@186 ~]# chmod 600 /etc/rsyncd_users.db</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：上行必须执行，否则后面的服务启动后，密码验证将失败！！！！</p>
+<ul>
+<li>启用rsync服务</li>
+</ul>
+<p>通过–daemon独自提供服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@186 ~]# rsync --daemon \\启动rsync服务</span><br><span class="line">[root@186 ~]# netstat -anpt |grep rsync   </span><br><span class="line">tcp        0      0 192.168.22.186:873          0.0.0.0:*                   LISTEN      3190/rsync</span><br><span class="line">[root@186 ~]# cat /var/run/rsyncd.pid</span><br><span class="line">3190</span><br><span class="line">[root@186 ~]# kill $(cat /var/run/rsyncd.pid)  \\结束rsync服务</span><br><span class="line">[root@186 ~]# netstat -anpt |grep rsync</span><br><span class="line">[root@186 ~]#</span><br><span class="line">[root@186 ~]# rsync --daemon</span><br><span class="line">[root@186 ~]# netstat -anpt |grep rsync</span><br><span class="line">tcp        0      0 192.168.22.186:873          0.0.0.0:*                   LISTEN      3271/rsync</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>rsync命令的用法</p>
+<ul>
+<li>基本格式：rsync [选项] 原始位置 目标位置</li>
+<li>常用选项：<ul>
+<li>-a：归档模式，递归并保留对象属性，等同于 -rlptgoD</li>
+<li>-v：显示同步过程的详细（verbose）信息</li>
+<li>-z：在传输文件时进行压缩（compress）</li>
+<li>-H：保留硬连接文件</li>
+<li>-A：保留ACL属性信息</li>
+<li>–delete：删除目标位置有而原始位置没有的文件</li>
+<li>–checksum：根据对象的校验和来决定是否跳过文件</li>
+</ul>
+</li>
+<li>其中：<ul>
+<li>-a：归档模式，递归并保留对象属性，等同于 -rlptgoD</li>
+<li>-r：递归模式，包含目录及子目录中所有文件</li>
+<li>-l：对于符号链接文件仍然复制为符号链接文件</li>
+<li>-p：保留文件的权限标记</li>
+<li>-t：保留文件的时间标记</li>
+<li>-g：保留文件的属组标记（仅超级用户使用）</li>
+<li>-o：保留文件的属主标记（仅超级用户使用）</li>
+<li>-D：保留设备文件及其他特殊文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>配置源的两种表示方法</p>
+<ul>
+<li>用户名@主机地址::共享模块名</li>
+<li>rsync://用户名@主机地址/共享模块名</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">[root@186 ~]# touch /var/www/html/file&#123;1..10&#125;</span><br><span class="line">[root@186 ~]# ls /var/www/html/</span><br><span class="line">file1  file10  file2  file3  file4  file5  file6  file7  file8  file9</span><br><span class="line"></span><br><span class="line">[root@187 ~]# mkdir /test</span><br><span class="line">[root@187 ~]# rsync -avz backuper@192.168.22.186::wwwroot /test</span><br><span class="line">Password:</span><br><span class="line">receiving incremental file list</span><br><span class="line">./</span><br><span class="line">file1</span><br><span class="line">file10</span><br><span class="line">file2</span><br><span class="line">file3</span><br><span class="line">file4</span><br><span class="line">file5</span><br><span class="line">file6</span><br><span class="line">file7</span><br><span class="line">file8</span><br><span class="line">file9</span><br><span class="line"></span><br><span class="line">sent 254 bytes  received 535 bytes  105.20 bytes/sec</span><br><span class="line">total size is 0  speedup is 0.00</span><br><span class="line">[root@187 ~]# ls /test/</span><br><span class="line">file1  file10  file2  file3  file4  file5  file6  file7  file8  file9</span><br><span class="line">[root@186 ~]# echo &quot;aaaaa&quot; &gt; /var/www/html/file1</span><br><span class="line">[root@187 ~]# rsync -avz backuper@192.168.22.186::wwwroot /test</span><br><span class="line">Password:</span><br><span class="line">receiving incremental file list</span><br><span class="line">file1</span><br><span class="line"></span><br><span class="line">sent 80 bytes  received 225 bytes  122.00 bytes/sec</span><br><span class="line">total size is 6  speedup is 0.02</span><br><span class="line">[root@187 ~]# cat /test/file1</span><br><span class="line">aaaaa</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">[root@187 ~]# rm -rf /test/*</span><br><span class="line">[root@187 ~]# rsync -avz rsync://backuper@192.168.22.186/wwwroot /test/</span><br><span class="line">Password:</span><br><span class="line">receiving incremental file list</span><br><span class="line">./</span><br><span class="line">file1</span><br><span class="line">file10</span><br><span class="line">file2</span><br><span class="line">file3</span><br><span class="line">file4</span><br><span class="line">file5</span><br><span class="line">file6</span><br><span class="line">file7</span><br><span class="line">file8</span><br><span class="line">file9</span><br><span class="line"></span><br><span class="line">sent 254 bytes  received 552 bytes  230.29 bytes/sec</span><br><span class="line">total size is 6  speedup is 0.01</span><br><span class="line">[root@187 ~]# ls /test/</span><br><span class="line">file1  file10  file2  file3  file4  file5  file6  file7  file8  file9</span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">[root@187 ~]# touch /test/abc&#123;a..d&#125;</span><br><span class="line">[root@187 ~]# rsync -avz --delete rsync://backuper@192.168.22.186/wwwroot /test/    //--delete：删除目标位置有而原始位置没有的文件</span><br><span class="line">Password:</span><br><span class="line">receiving incremental file list</span><br><span class="line">deleting abcd</span><br><span class="line">deleting abcc</span><br><span class="line">deleting abcb</span><br><span class="line">deleting abca</span><br><span class="line">./</span><br><span class="line"></span><br><span class="line">sent 64 bytes  received 183 bytes  70.57 bytes/sec</span><br><span class="line">total size is 6  speedup is 0.02</span><br><span class="line">[root@187 ~]# ls /test/</span><br><span class="line">file1  file10  file2  file3  file4  file5  file6  file7  file8  file9</span><br></pre></td></tr></table></figure>
+<ul>
+<li>rsync源的免交互处理<ul>
+<li>使用 –password-file= 密码文件</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@187 ~]# vi /etc/server.pass</span><br><span class="line">123</span><br><span class="line">[root@187 ~]# chmod 600 /etc/server.pass</span><br><span class="line">[root@187 ~]# touch /test/file&#123;100..105&#125;.txt</span><br><span class="line">[root@187 ~]# /usr/bin/rsync -az --delete --password-file=/etc/server.pass backuper@192.168.22.186::wwwroot /test/</span><br><span class="line">[root@187 ~]# ls /test/</span><br><span class="line">file1  file10  file2  file3  file4  file5  file6  file7  file8  file9</span><br><span class="line">[root@187 ~]# crontab -e</span><br><span class="line">30      22      *       *       *       /usr/bin/rsync -az --delete --password-file=/etc/server.pass backuper@192.168.22.186::wwwroot /test/</span><br><span class="line"></span><br><span class="line">[root@187 ~]# /etc/init.d/crond status</span><br><span class="line">crond (pid  2069) 正在运行...</span><br><span class="line">[root@187 ~]# chkconfig --list crond</span><br><span class="line">crond          	0:关闭	1:关闭	2:启用	3:启用	4:启用	5:启用	6:关闭</span><br></pre></td></tr></table></figure>
+<ul>
+<li>rsync实时同步<ul>
+<li>定期同步的不足</li>
+<li>执行备份的时间固定，延迟明显、实时性差</li>
+<li>当同步源长期不变化时，密集的定期任务是不必要的</li>
+<li>实时同步的优点</li>
+<li>一旦同步源出现变化，立即启动备份</li>
+<li>只要同步源无变化，则不执行备份</li>
+<li>Linux内核的inotify机制</li>
+<li>从版本2.6.13开始提供</li>
+<li>可以监控文件系统的变动情况，并作出通知响应</li>
+<li>辅助软件：inotify-tools</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/rsync2.png" alt="rsync2"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@186 ~]# chown nobody:nobody /var/www/html</span><br><span class="line">[root@186 ~]# vi /etc/rsyncd.conf</span><br><span class="line">uid = nobody</span><br><span class="line">gid = nobody</span><br><span class="line">use chroot = yes</span><br><span class="line">address = 192.168.22.186</span><br><span class="line">port 873</span><br><span class="line">log file = /var/log/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">hosts allow = 192.168.22.0/24</span><br><span class="line">[wwwroot]</span><br><span class="line">    path = /var/www/html</span><br><span class="line">    comment = Document Root of www1.benet.com</span><br><span class="line">    read only = no  \\修改此处由yes改为no,以便服务器有写入权限。</span><br><span class="line">    dont compress = *.gz *.bz2 *.tgz *.zip *.rar *.z</span><br><span class="line">    auth users = backuper</span><br><span class="line">    secrets file = /etc/rsyncd_users.db</span><br><span class="line"></span><br><span class="line">[root@186 ~]# kill $(cat /var/run/rsyncd.pid)</span><br><span class="line">[root@186 ~]# rsync --daemon</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调整inotify内核参数<ul>
+<li>max_queue_events：监控队列大小</li>
+<li>max_user_instances：最多监控实例数</li>
+<li>max_user_watches：每个实例最多监控文件数</li>
+</ul>
+</li>
+</ul>
+<p>========================下面在187客户端上的操作==============</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@187 ~]# vi /etc/sysctl.conf</span><br><span class="line">...</span><br><span class="line">fs.inotify.max_queued_events = 16384</span><br><span class="line">fs.inotify.max_user_instances = 1024</span><br><span class="line">fs.inotify.max_user_watches = 1048576</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@187 ~]# sysctl -p //使本文立即生效</span><br></pre></td></tr></table></figure>
+<p>下面，将软件inotify-tools-3.14.tar.gz上传187客户端中</p>
+<ul>
+<li>安装inotify-tools辅助工具<ul>
+<li>inotifywait：用于持续监控，实时输出结果</li>
+<li>inotifywatch：用于短期监控，任务完成后再出结果</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@187 ~]# tar xf inotify-tools-3.14.tar.gz</span><br><span class="line">[root@187 ~]# cd inotify-tools-3.14</span><br><span class="line">[root@187 inotify-tools-3.14]# ./configure &amp;&amp; make &amp;&amp; make install</span><br><span class="line">[root@187 ~]# mkdir -pv /var/www/html</span><br><span class="line">[root@187 ~]# echo &quot;www.benet.com&quot; &gt; /var/www/html/index.html</span><br><span class="line">[root@187 ~]# inotifywait -mrq -e modify,create,move,delete /var/www/html</span><br><span class="line">/var/www/html/ MODIFY index.html</span><br><span class="line">/var/www/html/ CREATE nihao</span><br><span class="line">/var/www/html/ DELETE nihao</span><br><span class="line">/var/www/html/ MOVED_FROM index.html</span><br><span class="line">/var/www/html/ MOVED_TO index.htm</span><br></pre></td></tr></table></figure>
+<p>在另一个187客户机的ssh通道中的操作，会出现以上内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@187 ~]# echo &quot;www.accp.com&quot; &gt; /var/www/html/index.html</span><br><span class="line">[root@187 ~]# cd /var/www/html/</span><br><span class="line">[root@187 html]# touch nihao</span><br><span class="line">[root@187 html]# rm -rf nihao</span><br><span class="line">[root@187 html]# mv index.html index.htm</span><br><span class="line">[root@187 html]#</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过inotifywait触发rsync同步操作<ul>
+<li>使用while、read持续获取监控结果</li>
+<li>根据结果可以作进一步判断，决定执行何种操作</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@187 ~]# vi /opt/inotify_rsync.sh</span><br><span class="line">#!/bin/bash</span><br><span class="line">#abc</span><br><span class="line">INOTIFY_CMD=&quot;/usr/local/bin/inotifywait -mrq -e modify,create,attrib,move,delete /var/www/html/&quot;</span><br><span class="line">RSYNC_CMD=&quot;/usr/bin/rsync -azH --delete --password-file=/etc/server.pass /var/www/html/ backuper@192.168.22.186::wwwroot&quot;</span><br><span class="line">$INOTIFY_CMD | while read DIRECTORY EVENT FILE</span><br><span class="line">do</span><br><span class="line">    if [ $(pgrep rsync | wc -l) -le 0 ] ; then</span><br><span class="line">        $RSYNC_CMD</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">[root@187 ~]# chmod +x /opt/inotify_rsync.sh</span><br><span class="line">[root@187 ~]# nohup /bin/bash /opt/inotify_rsync.sh &amp;</span><br><span class="line">//注意：nohup 可以保证当前执行程序的用户登出当前系统后，当前程序不停止，仍然执行后台程序。</span><br></pre></td></tr></table></figure>
+<h2 id="实验效果："><a href="#实验效果：" class="headerlink" title="实验效果："></a>实验效果：</h2><p>在187 /var/www/html下随意增删改文件，186下的/var/www/html/下会实时同步。</p>
 
       
     </div>
@@ -557,7 +678,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/VPN/" rel="tag"># VPN</a>
+            <a href="/tags/rsync/" rel="tag"># rsync</a>
           
         </div>
       
@@ -570,14 +691,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/18/三层交换DHCP/" rel="next" title="三层交换机配置DHCP为不同VLAN分配IP地址">
+                <i class="fa fa-chevron-left"></i> 三层交换机配置DHCP为不同VLAN分配IP地址
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/18/三层交换DHCP/" rel="prev" title="三层交换机配置DHCP为不同VLAN分配IP地址">
-                三层交换机配置DHCP为不同VLAN分配IP地址 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/22/dockerfile/" rel="prev" title="基于Dockerfile制作tomcat镜像">
+                基于Dockerfile制作tomcat镜像 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -779,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-你所需要的软件"><span class="nav-number">1.</span> <span class="nav-text">1.你所需要的软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-确定你的内核是否支持mppe"><span class="nav-number">2.</span> <span class="nav-text">2. 确定你的内核是否支持mppe</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-升级内核支持mppe"><span class="nav-number">3.</span> <span class="nav-text">3. 升级内核支持mppe</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-安装ppp"><span class="nav-number">4.</span> <span class="nav-text">4. 安装ppp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-安装pptpd"><span class="nav-number">5.</span> <span class="nav-text">5. 安装pptpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-配置你的pppd和pptpd"><span class="nav-number">6.</span> <span class="nav-text">6. 配置你的pppd和pptpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-打开防火墙端口"><span class="nav-number">7.</span> <span class="nav-text">7. 打开防火墙端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-测试pptpd"><span class="nav-number">8.</span> <span class="nav-text">8. 测试pptpd</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于rsync"><span class="nav-number">1.</span> <span class="nav-text">关于rsync</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">2.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求描述"><span class="nav-number">3.</span> <span class="nav-text">需求描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现思路"><span class="nav-number">4.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用示例"><span class="nav-number">5.</span> <span class="nav-text">应用示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验效果："><span class="nav-number">6.</span> <span class="nav-text">实验效果：</span></a></li></ol></div>
             
 
           </div>
