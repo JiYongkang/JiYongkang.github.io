@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="MongoDB 简介 MongoDB 是由 C++语言编写一个基于分布式文件存储的开源 NoSQL 数据库系统。在高负载的情况下，可添加更多的节点，以保证服务性能。 在许多场景下用于代替传统的关系型数据库或键/值存储方式。旨在为 Web 应用提供可扩展的高性能数据存储解决方案。 MongoDB 提供了一个面向文档存储，操作起来比较简单和容易，可以存储比较复杂的数据类型。最大的特点是支持的查询语言非">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB 介绍与部署应用">
+<meta property="og:url" content="http://yoursite.com/2019/05/25/MongoDB介绍与部署应用/index.html">
+<meta property="og:site_name" content="酒徒">
+<meta property="og:description" content="MongoDB 简介 MongoDB 是由 C++语言编写一个基于分布式文件存储的开源 NoSQL 数据库系统。在高负载的情况下，可添加更多的节点，以保证服务性能。 在许多场景下用于代替传统的关系型数据库或键/值存储方式。旨在为 Web 应用提供可扩展的高性能数据存储解决方案。 MongoDB 提供了一个面向文档存储，操作起来比较简单和容易，可以存储比较复杂的数据类型。最大的特点是支持的查询语言非">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-24T16:12:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB 介绍与部署应用">
+<meta name="twitter:description" content="MongoDB 简介 MongoDB 是由 C++语言编写一个基于分布式文件存储的开源 NoSQL 数据库系统。在高负载的情况下，可添加更多的节点，以保证服务性能。 在许多场景下用于代替传统的关系型数据库或键/值存储方式。旨在为 Web 应用提供可扩展的高性能数据存储解决方案。 MongoDB 提供了一个面向文档存储，操作起来比较简单和容易，可以存储比较复杂的数据类型。最大的特点是支持的查询语言非">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/25/MongoDB介绍与部署应用/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MongoDB 介绍与部署应用 | 酒徒</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">酒徒</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/MongoDB介绍与部署应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="酒徒">
+      <meta itemprop="description" content="人生如酒 每一滴都是醉人的">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="酒徒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MongoDB 介绍与部署应用
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-25 00:39:05 / 修改时间：00:12:09" itemprop="dateCreated datePublished" datetime="2019-05-25T00:39:05+08:00">2019-05-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MongoDB-简介"><a href="#MongoDB-简介" class="headerlink" title="MongoDB 简介"></a>MongoDB 简介</h1><ul>
+<li>MongoDB 是由 C++语言编写一个基于分布式文件存储的开源 NoSQL 数据库系统。在高负<br>载的情况下，可添加更多的节点，以保证服务性能。 在许多场景下用于代替传统的关系型<br>数据库或键/值存储方式。旨在为 Web 应用提供可扩展的高性能数据存储解决方案。</li>
+<li>MongoDB 提供了一个面向文档存储，操作起来比较简单和容易，可以存储比较复杂的<br>数据类型。最大的特点是支持的查询语言非常强大，语法优点类似于面向对象的查询语<br>言。几乎可以实现类似关系数据库单表查询的绝大部分功能，而且还支持对数据建立索<br>引。是一个面向集合的，模式自由的文档型数据库。</li>
+<li>MongoDB 适用领域：<ul>
+<li>网站数据</li>
+<li>分布式场景</li>
+<li>缓存层</li>
+<li>文档格式存储</li>
+</ul>
+</li>
+</ul>
+<h1 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h1><ul>
+<li>文档（document）：是 mongodb 的核心概念，是 mongodb 逻辑存储的最小单元</li>
+<li>集合（collection）：多个文档组成集合</li>
+<li>数据库（database）：多个集合组成数据库</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">MongoDB</th>
+<th style="text-align:center">关系型数据库</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">文档（document）</td>
+<td style="text-align:center">行（row）</td>
+</tr>
+<tr>
+<td style="text-align:center">集合（collection）</td>
+<td style="text-align:center">表（table）</td>
+</tr>
+<tr>
+<td style="text-align:center">数据库（database）</td>
+<td style="text-align:center">数据库（database）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="物理存储结构"><a href="#物理存储结构" class="headerlink" title="物理存储结构"></a>物理存储结构</h1><h2 id="数据存储结构"><a href="#数据存储结构" class="headerlink" title="数据存储结构"></a>数据存储结构</h2><ul>
+<li>命名空间文件（ns）</li>
+<li>数据文件（0,1,2）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# ll -ht /data/mongodb1/</span><br><span class="line">总用量 81M</span><br><span class="line">drwxr-xr-x 2 root root 4.0K 7 月 11 16:45 diagnostic.data</span><br><span class="line">-rw------- 1 root root 64M 7 月 11 16:32 local.0</span><br><span class="line">-rw------- 1 root root 16M 7 月 11 16:32 local.ns</span><br><span class="line">-rw-r--r-- 1 root root 5 7 月 11 16:32 mongod.lock</span><br><span class="line">drwxr-xr-x 2 root root 4.0K 7 月 11 16:32 journal</span><br><span class="line">-rw-r--r-- 1 root root 69 7 月 11 11:26 storage.bson</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="日志存储结构"><a href="#日志存储结构" class="headerlink" title="日志存储结构"></a>日志存储结构</h2><ul>
+<li>系统日志文件 logpath</li>
+<li>journal 日志文件</li>
+<li>oplog 复制操作日志文件</li>
+<li>慢查询日志<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# ll -ht /data/logs/mongodb/mongodb1.log</span><br><span class="line">-rwxrwxrwx 1 root root 21K 7 月 11 16:39 /data/logs/mongodb/mongodb1.log</span><br><span class="line">[root@mongodb ~]# ll -ht /data/mongodb1/journal/</span><br><span class="line">总用量 3.1G</span><br><span class="line">-rw------- 1 root root 1.0G 7 月 11 16:32 j._0</span><br><span class="line">-rw------- 1 root root 1.0G 7 月 11 11:26 prealloc.2</span><br><span class="line">-rw------- 1 root root 1.0G 7 月 11 11:26 prealloc.1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><ul>
+<li>BSON 是 Binary JSON，是二进制的格式，能将 mongdb 的所有文档表示为字节字符串。</li>
+<li>JSON 是一种轻量级的数据交换格式。它基于 JavaScript 的一个子集</li>
+</ul>
+<h2 id="BSON-的数据类型"><a href="#BSON-的数据类型" class="headerlink" title="BSON 的数据类型"></a>BSON 的数据类型</h2><ul>
+<li>null，代表空或者不存在</li>
+<li>布尔，只有 true 和 false</li>
+<li>数字， 64 位浮点数</li>
+<li>字符串， utf8 字符串</li>
+<li>数组，值或者列表可表示为数组</li>
+<li>对象，对象的数据</li>
+</ul>
+<h2 id="BSON-的特点"><a href="#BSON-的特点" class="headerlink" title="BSON 的特点"></a>BSON 的特点</h2><ul>
+<li>优点：简单，简洁，容易理解、解析、记忆</li>
+</ul>
+<h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><ul>
+<li>文档的键命名几乎所有 utf8 字符，只有少数例外： $开头； \0（空字符）；_ 下划线开头。</li>
+<li>集合的命名几乎所有 utf8 字符，只有少数例外： $开头； \0（空字符）； system.开头； ”&emsp; ”空字符串。</li>
+<li>数据库的命名几乎所有 utf8 字符，只有少数例外： ”&emsp; ”空字符串；\0；空格； . 点； \ ；/。</li>
+</ul>
+<h1 id="安装与管理-MongoDB"><a href="#安装与管理-MongoDB" class="headerlink" title="安装与管理 MongoDB"></a>安装与管理 MongoDB</h1><ul>
+<li><p>官网下载地址：<a href="http://www.mongodb.org/downloads" target="_blank" rel="noopener">http://www.mongodb.org/downloads</a></p>
+</li>
+<li><p>此次安装版本下载地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# wget https://www.mongodb.com/dr/fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.2.7.tgz/download</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在CentOS-6.6 64位系统部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# tar xf mongodb-linux-x86_64-rhel62-3.2.7.tgz</span><br><span class="line">[root@mongodb ~]# mv mongodb-linux-x86_64-rhel62-3.2.7/ /usr/local/mongodb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指定同一时间最多可开启的文件数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# ulimit -n</span><br><span class="line">1024</span><br><span class="line">[root@mongodb ~]# ulimit -n 65535</span><br><span class="line">[root@mongodb ~]# ulimit -n</span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用户最多可开启的程序数目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# ulimit -u</span><br><span class="line">7758</span><br><span class="line">[root@mongodb ~]# ulimit -u 65535</span><br><span class="line">[root@mongodb ~]# ulimit -u</span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据目录，日志文件及目录并创建相应配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# mkdir -p /data/mongodb1</span><br><span class="line">[root@mongodb ~]# mkdir -p /data/logs/mongodb</span><br><span class="line">[root@mongodb ~]# touch /data/logs/mongodb/mongodb1.log</span><br><span class="line">[root@mongodb ~]# cd /usr/local/mongodb/</span><br><span class="line">[root@mongodb mongodb]# ls</span><br><span class="line">bin GNU-AGPL-3.0 MPL-2 README THIRD-PARTY-NOTICES</span><br><span class="line">[root@mongodb mongodb]# mkdir conf</span><br><span class="line">[root@mongodb mongodb]# vim conf/mongodb1.conf</span><br><span class="line">port=27017</span><br><span class="line">dbpath=/data/mongodb1</span><br><span class="line">logpath=/data/logs/mongodb/mongodb1.log</span><br><span class="line">logappend=true</span><br><span class="line">fork=true</span><br><span class="line">maxConns=5000</span><br><span class="line">storageEngine=mmapv1</span><br><span class="line">[root@mongodb mongodb]# pwd</span><br><span class="line">/usr/local/mongodb</span><br><span class="line">[root@mongodb mongodb]# ls bin/</span><br><span class="line">bsondump mongo mongod mongodump mongoexport mongofiles mongoimport</span><br><span class="line">mongooplog mongoperf mongorestore mongos mongostat mongotop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 MongoDB 数据库， -f 指定配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb mongodb]# /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/mongodb1.conf</span><br><span class="line">about to fork child process, waiting until server is ready for connections.</span><br><span class="line">forked process: 1791</span><br><span class="line">child process started successfully, parent exiting</span><br><span class="line">[root@mongodb mongodb]# netstat -anpt |grep mongod</span><br><span class="line">tcp 0 0 0.0.0.0:27017 0.0.0.0:* LISTEN  1791/mongod</span><br><span class="line">[root@mongodb mongodb]# ps aux |grep mongdb</span><br><span class="line">root 1347 0.0 0.0 103248 872 pts/0 S+ 11:28 0:00 grep mongdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置开机自动启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb mongodb]# vim /etc/rc.local</span><br><span class="line">rm -f /data/mongodb1/mongod.lock</span><br><span class="line">/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/mongodb1.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongo</span><br><span class="line">MongoDB shell version: 3.2.7</span><br><span class="line">connecting to: test</span><br><span class="line">Welcome to the MongoDB shell.</span><br><span class="line">For interactive help, type &quot;help&quot;.</span><br><span class="line">For more comprehensive documentation, see</span><br><span class="line">http://docs.mongodb.org/</span><br><span class="line">Questions? Try the support group</span><br><span class="line">http://groups.google.com/group/mongodb-user</span><br><span class="line">Server has startup warnings:</span><br><span class="line">2016-07-11T11:26:52.060+0800 I CONTROL [initandlisten] ** WARNING: You are running this</span><br><span class="line">process as the root user, which is not recommended.</span><br><span class="line">2016-07-11T11:26:52.061+0800 I CONTROL [initandlisten]</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten]</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten] ** WARNING:</span><br><span class="line">/sys/kernel/mm/transparent_hugepage/enabled is &apos;always&apos;.</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten] ** We suggest setting it</span><br><span class="line">to &apos;never&apos;</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten]</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten] ** WARNING:</span><br><span class="line">/sys/kernel/mm/transparent_hugepage/defrag is &apos;always&apos;.</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten] ** We suggest setting it</span><br><span class="line">to &apos;never&apos;</span><br><span class="line">2016-07-11T11:26:52.107+0800 I CONTROL [initandlisten]</span><br><span class="line">&gt; show dbs</span><br><span class="line">local 0.078GB</span><br><span class="line">&gt; exit</span><br><span class="line">bye</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>去除报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">[root@mongodb ~]# echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</span><br><span class="line">[root@mongodb ~]# vim .bash_profile</span><br><span class="line">alias mongo=/usr/local/mongodb/bin/mongo</span><br><span class="line">[root@mongodb ~]# . .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭服务的三种方法</p>
+<ul>
+<li><p>方法一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# mongo</span><br><span class="line">&gt; use admin</span><br><span class="line">switched to db admin</span><br><span class="line">&gt; db.shutdownServer(); //关闭服务</span><br><span class="line">server should be down...</span><br><span class="line">2016-07-11T16:08:20.848+0800 I NETWORK [thread1] trying reconnect to 127.0.0.1:27017</span><br><span class="line">(127.0.0.1) failed</span><br><span class="line">2016-07-11T16:08:20.848+0800 W NETWORK [thread1] Failed to connect to 127.0.0.1:27017,</span><br><span class="line">reason: errno:111 Connection refused</span><br><span class="line">2016-07-11T16:08:20.848+0800 I NETWORK [thread1] reconnect 127.0.0.1:27017 (127.0.0.1)</span><br><span class="line">failed failed</span><br><span class="line">&gt; exit</span><br><span class="line">bye</span><br><span class="line">[root@mongodb ~]# netstat -anpt |grep mongod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/mongodb1.conf</span><br><span class="line">about to fork child process, waiting until server is ready for connections.</span><br><span class="line">forked process: 1448</span><br><span class="line">child process started successfully, parent exiting</span><br><span class="line">[root@mongodb ~]# netstat -anpt |grep mongod</span><br><span class="line">tcp 0 0 0.0.0.0:27017 0.0.0.0:* LISTEN 1448/mongod</span><br><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongod -f</span><br><span class="line">/usr/local/mongodb/conf/mongodb1.conf --shutdown</span><br><span class="line">killing process with pid: 1448</span><br><span class="line">[root@mongodb ~]# netstat -anpt |grep mongod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法三：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# kill 1448 //杀死进程号</span><br><span class="line">[root@mongodb ~]# netstat -anpt |grep mongod</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>开启两个实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# cd /usr/local/mongodb/conf/</span><br><span class="line">[root@mongodb conf]# cp mongodb&#123;1,2&#125;.conf</span><br><span class="line">[root@mongodb conf]# ls</span><br><span class="line">mongodb1.conf mongodb2.conf</span><br><span class="line">[root@mongodb conf]# vim mongodb2.conf</span><br><span class="line">port=27018</span><br><span class="line">dbpath=/data/mongodb2</span><br><span class="line">logpath=/data/logs/mongodb/mongodb2.log</span><br><span class="line">logappend=true</span><br><span class="line">fork=true</span><br><span class="line">maxConns=5000</span><br><span class="line">storageEngine=mmapv1</span><br><span class="line">[root@mongodb conf]# mkdir /data/mongodb2</span><br><span class="line">[root@mongodb conf]# touch /data/logs/mongodb/mongodb2.log</span><br><span class="line">[root@mongodb conf]# chmod 777 /data/logs/mongodb/mongodb2.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写启停脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb conf]# cd /etc/init.d/</span><br><span class="line">[root@mongodb init.d]# vim mongodb</span><br><span class="line">#!/bin/bash</span><br><span class="line">INSTANCE=$1</span><br><span class="line">ACTION=$2</span><br><span class="line">case &quot;$ACTION&quot; in</span><br><span class="line">&apos;start&apos;)</span><br><span class="line">/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/&quot;$INSTANCE&quot;.conf;;</span><br><span class="line">&apos;stop&apos;)</span><br><span class="line">/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/&quot;$INSTANCE&quot;.conf --shutdown;;</span><br><span class="line">&apos;restart&apos;)</span><br><span class="line">/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/&quot;$INSTANCE&quot;.conf --shutdown</span><br><span class="line">/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/conf/&quot;$INSTANCE&quot;.conf;;</span><br><span class="line">esac</span><br><span class="line">[root@mongodb init.d]# chmod +x mongodb</span><br><span class="line">[root@mongodb ~]# /etc/init.d/mongodb mongodb1 start</span><br><span class="line">about to fork child process, waiting until server is ready for connections.</span><br><span class="line">forked process: 1521</span><br><span class="line">child process started successfully, parent exiting</span><br><span class="line">[root@mongodb init.d]# /etc/init.d/mongodb mongodb2 start</span><br><span class="line">about to fork child process, waiting until server is ready for connections.</span><br><span class="line">forked process: 1498</span><br><span class="line">child process started successfully, parent exiting</span><br><span class="line">[root@mongodb init.d]# netstat -anpt |grep mongod</span><br><span class="line">tcp 0 0 0.0.0.0:27017 0.0.0.0:* LISTEN  1521/mongod</span><br><span class="line">tcp 0 0 0.0.0.0:27018 0.0.0.0:* LISTEN  1498/mongod</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">show dbs</td>
+<td style="text-align:center">查看当前示例下的数据库列表，等同于 show database</td>
+</tr>
+<tr>
+<td style="text-align:center">show users</td>
+<td style="text-align:center">显示用户</td>
+</tr>
+<tr>
+<td style="text-align:center">use &lt;db_name&gt;</td>
+<td style="text-align:center">切换当前数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">db.help()</td>
+<td style="text-align:center">显示数据库操作命令</td>
+</tr>
+<tr>
+<td style="text-align:center">show collections</td>
+<td style="text-align:center">显示当前数据库中的集合，等同于 show tables</td>
+</tr>
+<tr>
+<td style="text-align:center">db.mycoll.help()</td>
+<td style="text-align:center">显示集合操作命令， mycoll 是当前下叫做 mycoll 的集合</td>
+</tr>
+<tr>
+<td style="text-align:center">db.foo.find()</td>
+<td style="text-align:center">对当前数据库中 foo 集合进行数据查找</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + d</td>
+<td style="text-align:center">退出</td>
+</tr>
+<tr>
+<td style="text-align:center">help</td>
+<td style="text-align:center">查看帮助</td>
+</tr>
+</tbody>
+</table>
+<h1 id="数据库备份与导入"><a href="#数据库备份与导入" class="headerlink" title="数据库备份与导入"></a>数据库备份与导入</h1><h2 id="数据备份方法"><a href="#数据备份方法" class="headerlink" title="数据备份方法"></a>数据备份方法</h2><ul>
+<li>导入： mongoimport</li>
+<li>导出： mongoexport</li>
+<li>备份<ul>
+<li>逻辑备份： mongodump</li>
+<li>物理备份：冷备</li>
+</ul>
+</li>
+<li>恢复： mongorestore</li>
+</ul>
+<h2 id="复制数据库"><a href="#复制数据库" class="headerlink" title="复制数据库"></a>复制数据库</h2><ul>
+<li>复制本地数据库： db.copyDatabase(“from_db”,”to_db”,”locolhost”)</li>
+<li>复制远程数据库： db.copyDatabase(“from_db”,”to_db”,”192.168.200.101”)</li>
+<li>克隆集合： db.runCommand({cloneCollection:”accp.t1”,from:”192.168.200.101”})</li>
+</ul>
+<h2 id="查看帮助的方法："><a href="#查看帮助的方法：" class="headerlink" title="查看帮助的方法："></a>查看帮助的方法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongoimport --help</span><br><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongoexport --help</span><br><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongodump --help</span><br></pre></td></tr></table></figure>
+<h2 id="备份案例"><a href="#备份案例" class="headerlink" title="备份案例"></a>备份案例</h2><ul>
+<li><p>将 MySQL 数据库内容导入 mongodb</p>
+<ul>
+<li><p>安装 mysql 数据库，创建一个表并插入一些内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# yum -y install mysql mysql-server</span><br><span class="line">[root@mongodb ~]# /etc/init.d/mysqld start</span><br><span class="line">[root@mongodb ~]# mysql</span><br><span class="line">mysql&gt; create database benet;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">mysql&gt; use benet;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; create table t1(id int,name varchar(20));</span><br><span class="line">Query OK, 0 rows affected (0.05 sec)</span><br><span class="line">mysql&gt; insert into t1 values(1,&quot;Jack&quot;);</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">mysql&gt; insert into t1 values(2,&quot;Rose&quot;);</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">mysql&gt; select * from t1;</span><br><span class="line">+------+------+</span><br><span class="line">| id | name |</span><br><span class="line">+------+------+</span><br><span class="line">| 1 | Jack |</span><br><span class="line">| 2 | Rose |</span><br><span class="line">+------+------+</span><br><span class="line">2 rows in set (0.00 sec)21 / 25</span><br><span class="line">mysql&gt; select * from t1 into outfile &apos;/tmp/t1_mysql.csv&apos; fields terminated by &quot;,&quot;;</span><br><span class="line">//导出 t1 表里的内容到/tmp/t1_mysql.csv 文件，以“，”逗号分割</span><br><span class="line">Query OK, 2 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; Bye</span><br><span class="line">[root@mongodb ~]# cat /tmp/t1_mysql.csv</span><br><span class="line">1,Jack</span><br><span class="line">2,Rose</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 csv 格式的表导入 mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# /usr/local/mongodb/bin/mongoimport -d benet -c tt1 -f id,name --file</span><br><span class="line">/tmp/t1_mysql.csv --type csv</span><br><span class="line">2016-07-11T18:31:23.160+0800 connected to: localhost</span><br><span class="line">2016-07-11T18:31:23.195+0800 imported 2 documents</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将/tmp/t1_mysql.csv 文件导入到 mongodb 的 benet 数据库下的 tt1 表，字段名称为 id 和name，文件类型为 csv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@mongodb ~]# mongo</span><br><span class="line">&gt; use benet</span><br><span class="line">switched to db benet</span><br><span class="line">&gt; show collections</span><br><span class="line">system.indexes</span><br><span class="line">tt1</span><br><span class="line">user</span><br><span class="line">&gt; db.tt1.find();</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5783757b737177ed108eb553&quot;), &quot;id&quot; : 1, &quot;name&quot; : &quot;Jack&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5783757b737177ed108eb554&quot;), &quot;id&quot; : 2, &quot;name&quot; : &quot;Rose&quot; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+    <div>
+    
+        <img src="/images/weixin.jpg" width="150px" height="150px" alt="logo">
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-paw"></i>欢迎订阅<i class="fa fa-paw"></i>微信公众号-------------</div>
+    
+</div>
+
+  
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/22/dockerfile/" rel="next" title="基于Dockerfile制作tomcat镜像">
+                <i class="fa fa-chevron-left"></i> 基于Dockerfile制作tomcat镜像
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="酒徒">
+            
+              <p class="site-author-name" itemprop="name">酒徒</p>
+              <div class="site-description motion-element" itemprop="description">人生如酒 每一滴都是醉人的</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/JiYongkang" title="GitHub &rarr; https://github.com/JiYongkang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:13315018299@163.com" title="E-Mail &rarr; mailto:13315018299@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.borshman.top" title="http://www.borshman.top" rel="noopener" target="_blank">Borshman</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB-简介"><span class="nav-number">1.</span> <span class="nav-text">MongoDB 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑结构"><span class="nav-number">2.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物理存储结构"><span class="nav-number">3.</span> <span class="nav-text">物理存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据存储结构"><span class="nav-number">3.1.</span> <span class="nav-text">数据存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志存储结构"><span class="nav-number">3.2.</span> <span class="nav-text">日志存储结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">4.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BSON-的数据类型"><span class="nav-number">4.1.</span> <span class="nav-text">BSON 的数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BSON-的特点"><span class="nav-number">4.2.</span> <span class="nav-text">BSON 的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规则"><span class="nav-number">4.3.</span> <span class="nav-text">命名规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装与管理-MongoDB"><span class="nav-number">5.</span> <span class="nav-text">安装与管理 MongoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本操作"><span class="nav-number">6.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库备份与导入"><span class="nav-number">7.</span> <span class="nav-text">数据库备份与导入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据备份方法"><span class="nav-number">7.1.</span> <span class="nav-text">数据备份方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制数据库"><span class="nav-number">7.2.</span> <span class="nav-text">复制数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看帮助的方法："><span class="nav-number">7.3.</span> <span class="nav-text">查看帮助的方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份案例"><span class="nav-number">7.4.</span> <span class="nav-text">备份案例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bistros</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.6" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b55da6db2f14e186762f',
+    clientSecret: 'e3b6cbb861abd982446cf9689b414bdff0b4c6e5',
+    repo: 'jiyongkang.github.io',
+    owner: 'jiyongkang',
+    admin: ['jiyongkang'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
