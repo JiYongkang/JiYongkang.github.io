@@ -122,18 +122,29 @@
 
 
 
-  <meta name="description" content="1.你所需要的软件pppd    ppp拨号服务器pptpd   在pppd拨号的基础上增加pptpd的支持 2. 确定你的内核是否支持mppe1modprobe ppp-compress-18 &amp;amp;&amp;amp; echo ok 如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分 3. 升级内核支持mppe12wget http://poptop.sourceforge.ne">
-<meta name="keywords" content="VPN">
+  <meta name="description" content="Kubernetes是什么？ Kubernetes是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。  通过Kubernetes你可以：  快速部署应用 快速扩展应用 无缝对接新的应用功能 节省资源，优化硬件资源的使用    Kubernetes 特点 可移植: 支持公有云，私有云，混合云，多重云（multi-cloud） 可扩展: 模块化, 插件化, 可">
+<meta name="keywords" content="k8s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PPTP搭建">
-<meta property="og:url" content="http://yoursite.com/2019/05/15/PPTP搭建/index.html">
+<meta property="og:title" content="Kubernetes集群搭建">
+<meta property="og:url" content="http://yoursite.com/2019/07/08/kubernetes安装/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="1.你所需要的软件pppd    ppp拨号服务器pptpd   在pppd拨号的基础上增加pptpd的支持 2. 确定你的内核是否支持mppe1modprobe ppp-compress-18 &amp;amp;&amp;amp; echo ok 如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分 3. 升级内核支持mppe12wget http://poptop.sourceforge.ne">
+<meta property="og:description" content="Kubernetes是什么？ Kubernetes是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。  通过Kubernetes你可以：  快速部署应用 快速扩展应用 无缝对接新的应用功能 节省资源，优化硬件资源的使用    Kubernetes 特点 可移植: 支持公有云，私有云，混合云，多重云（multi-cloud） 可扩展: 模块化, 插件化, 可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-15T08:47:13.697Z">
+<meta property="og:image" content="http://yoursite.com/images/k8s_1.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_2.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_3.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_4.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_5.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_6.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_7.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_8.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_9.png">
+<meta property="og:image" content="http://yoursite.com/images/k8s_10.png">
+<meta property="og:updated_time" content="2019-07-07T16:04:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PPTP搭建">
-<meta name="twitter:description" content="1.你所需要的软件pppd    ppp拨号服务器pptpd   在pppd拨号的基础上增加pptpd的支持 2. 确定你的内核是否支持mppe1modprobe ppp-compress-18 &amp;amp;&amp;amp; echo ok 如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分 3. 升级内核支持mppe12wget http://poptop.sourceforge.ne">
+<meta name="twitter:title" content="Kubernetes集群搭建">
+<meta name="twitter:description" content="Kubernetes是什么？ Kubernetes是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。  通过Kubernetes你可以：  快速部署应用 快速扩展应用 无缝对接新的应用功能 节省资源，优化硬件资源的使用    Kubernetes 特点 可移植: 支持公有云，私有云，混合云，多重云（multi-cloud） 可扩展: 模块化, 插件化, 可">
+<meta name="twitter:image" content="http://yoursite.com/images/k8s_1.png">
 
 
 
@@ -141,7 +152,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/15/PPTP搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/08/kubernetes安装/">
 
 
 
@@ -151,7 +162,7 @@
   };
 </script>
 
-  <title>PPTP搭建 | 酒徒</title>
+  <title>Kubernetes集群搭建 | 酒徒</title>
   
 
 
@@ -397,7 +408,7 @@
 
 
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/PPTP搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/08/kubernetes安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="酒徒">
@@ -414,7 +425,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PPTP搭建
+          <h1 class="post-title" itemprop="name headline">Kubernetes集群搭建
 
               
             
@@ -440,9 +451,13 @@
                 
               
 
-              <time title="创建时间：2019-05-15 16:47:13" itemprop="dateCreated datePublished" datetime="2019-05-15T16:47:13+08:00">2019-05-15</time>
+              <time title="创建时间：2019-07-08 00:05:11 / 修改时间：00:04:22" itemprop="dateCreated datePublished" datetime="2019-07-08T00:05:11+08:00">2019-07-08</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -500,28 +515,138 @@
       
 
       
-        <h1 id="1-你所需要的软件"><a href="#1-你所需要的软件" class="headerlink" title="1.你所需要的软件"></a>1.你所需要的软件</h1><p>pppd    ppp拨号服务器<br>pptpd   在pppd拨号的基础上增加pptpd的支持</p>
-<h1 id="2-确定你的内核是否支持mppe"><a href="#2-确定你的内核是否支持mppe" class="headerlink" title="2. 确定你的内核是否支持mppe"></a>2. 确定你的内核是否支持mppe</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe ppp-compress-18 &amp;&amp; echo ok</span><br></pre></td></tr></table></figure>
-<p>如果显示ok，那么恭喜，你的内核已经具备了mppe支持。请到第4部分</p>
-<h1 id="3-升级内核支持mppe"><a href="#3-升级内核支持mppe" class="headerlink" title="3. 升级内核支持mppe"></a>3. 升级内核支持mppe</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://poptop.sourceforge.net/yum/stable/packages/dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">wget http://poptop.sourceforge.net/yum/stable/packages/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br></pre></td></tr></table></figure>
-<p>dkms是一个新的软件，能让你在不编译内核的基础上，外挂一些内核的模块。<br>kernel_ppp_mppe就是mppe支持的内核模块了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh dkms-2.0.17.5-1.noarch.rpm</span><br><span class="line">rpm -ivh kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<p>以上二个是为CENTOS加载MPPE[MICROSOFT的加密协议] ..不安装的话就不能使用加密连接<br>ok后重起你的系统</p>
-<h1 id="4-安装ppp"><a href="#4-安装ppp" class="headerlink" title="4. 安装ppp"></a>4. 安装ppp</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install ppp</span><br><span class="line">或者</span><br><span class="line">rpm －Uvh  ppp-2.4.2-b3.i386.rpm</span><br></pre></td></tr></table></figure>
-<p><eg></eg></p>
-<h1 id="5-安装pptpd"><a href="#5-安装pptpd" class="headerlink" title="5. 安装pptpd"></a>5. 安装pptpd</h1><p>(1)使用yum安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/Doylenet.repo</span><br><span class="line">    [doylenet]</span><br><span class="line">    name=Doylenet custom repository for CentOS</span><br><span class="line">    baseurl=http://files.doylenet.net/linux/yum/centos/5/i386/doylenet/</span><br><span class="line">    gpgcheck=1</span><br><span class="line">    gpgkey=http://files.doylenet.net/linux/yum/centos/RPM-GPG-KEY-rdoyle</span><br><span class="line">    enabled=1</span><br><span class="line">    # yum update</span><br><span class="line">    # yum install pptpd</span><br></pre></td></tr></table></figure></p>
-<p>(2)rpm下载安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ntua.gr/pub/net/poptop/pptpd/pptpd-1.3.1/pptpd-1.1.3-4.i386.rpm</span><br><span class="line">rpm －ivh  pptpd-1.1.3-4.i386.rpm</span><br></pre></td></tr></table></figure></p>
-<p>注意32位或者64位版本，否则吃大亏！鄙人就是在64位服务器上装了32位的pptpd，就给搞了很长时间才发现！！ </p>
-<h1 id="6-配置你的pppd和pptpd"><a href="#6-配置你的pppd和pptpd" class="headerlink" title="6. 配置你的pppd和pptpd"></a>6. 配置你的pppd和pptpd</h1><p>/etc/pptpd.conf中需要配置的地方只有几个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">option /etc/ppp/options.pptpd</span><br></pre></td></tr></table></figure></p>
-<p>logwtmp 如果日志里出现类似以下问题一定要注释掉logwtmp！！！！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jun 21 15:39:55 center pppd[1374]: /usr/lib/pptpd/pptpd-logwtmp.so: wrong ELF class: ELFCLASS32</span><br><span class="line">Jun 21 15:39:55 center pppd[1374]: Couldn&apos;t load plugin /usr/lib/pptpd/pptpd-logwtmp.so</span><br><span class="line">localip 192.168.9.1</span><br><span class="line">remoteip 192.168.9.11-30</span><br></pre></td></tr></table></figure></p>
-<p>配置pptpd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/etc/ppp/options.pptpd</span><br><span class="line">    name pptpd</span><br><span class="line">    refuse-pap</span><br><span class="line">    refuse-chap</span><br><span class="line">    refuse-mschap</span><br><span class="line">    require-mschap-v2</span><br><span class="line">    require-mppe-128</span><br><span class="line">    proxyarp</span><br><span class="line">    lock</span><br><span class="line">    nobsdcomp</span><br><span class="line">    novj</span><br><span class="line">    novjccomp</span><br><span class="line">    nologfd</span><br><span class="line">    idle 2592000</span><br><span class="line">    ms-dns 8.8.8.8</span><br><span class="line">    ms-dns 8.8.4.4</span><br></pre></td></tr></table></figure></p>
-<p>编辑 /etc/ppp/chap-secrets<br>添加一个测试用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/ppp/chap-secrets</span><br><span class="line"># Secrets for authentication using CHAP</span><br><span class="line"># client     server   secret      IP addresses</span><br><span class="line">test      pptpd    test           *</span><br></pre></td></tr></table></figure></p>
-<p>第一个test是用户，第二个test是密码 ，*表示任意ip<br>配置文件/etc/sysctl.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line">net.ipv4.ip_forward = 1      修改为“1”内容开启ip转发：</span><br></pre></td></tr></table></figure></p>
-<p>保存、退出后执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
-<p><eg></eg></p>
-<h1 id="7-打开防火墙端口"><a href="#7-打开防火墙端口" class="headerlink" title="7. 打开防火墙端口"></a>7. 打开防火墙端口</h1><p>将Linux服务器的1723端口和47端口打开，并打开GRE协议。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 1723 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 47 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p gre -j ACCEPT</span><br><span class="line">iptables -A POSTROUTING -t nat -s 192.168.9.0/24 -o eth0 -j MASQUERADE</span><br><span class="line">iptables -A INPUT -p UDP --dport 53 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
-<p>这个最蛋疼，开始没注意，能连接上怎么都打不开网页，搞了半天才发现DNS端口没有打开，差点昏死过去！！<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables save</span><br></pre></td></tr></table></figure></p>
-<p><eg></eg></p>
-<h1 id="8-测试pptpd"><a href="#8-测试pptpd" class="headerlink" title="8. 测试pptpd"></a>8. 测试pptpd</h1><p>如果是默认安装，你在任意路径打pptpd就可以了。<br>如果成功，用以下命令看到日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail /var/log/messages</span><br><span class="line">   Feb 10 09:51:46 kdfng pptpd[926]: MGR: Manager process started</span><br><span class="line">   Feb 10 09:51:46 kdfng pptpd[926]: MGR: Maximum of 100 connections available</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Kubernetes是什么？"><a href="#Kubernetes是什么？" class="headerlink" title="Kubernetes是什么？"></a>Kubernetes是什么？</h2><ul>
+<li><p>Kubernetes是容器集群管理系统，是一个开源的平台，可以实现容器集群的自动化部署、自动扩缩容、维护等功能。</p>
+</li>
+<li><p>通过Kubernetes你可以：</p>
+<ul>
+<li>快速部署应用</li>
+<li>快速扩展应用</li>
+<li>无缝对接新的应用功能</li>
+<li>节省资源，优化硬件资源的使用</li>
+</ul>
+</li>
+</ul>
+<h2 id="Kubernetes-特点"><a href="#Kubernetes-特点" class="headerlink" title="Kubernetes 特点"></a>Kubernetes 特点</h2><ul>
+<li>可移植: 支持公有云，私有云，混合云，多重云（multi-cloud）</li>
+<li>可扩展: 模块化, 插件化, 可挂载, 可组合</li>
+<li>自动化: 自动部署，自动重启，自动复制，自动伸缩/扩展</li>
+</ul>
+<p>Kubernetes是Google 2014年创建管理的，是Google 10多年大规模容器管理技术Borg的开源版本。</p>
+<h2 id="Kubernetes概述"><a href="#Kubernetes概述" class="headerlink" title="Kubernetes概述"></a>Kubernetes概述</h2><ul>
+<li>随着 Docker 技术的发展和广泛流行，云原生应用和容器调度管理系统也成为 IT 领域大热的词汇。事实上，在 Docker 技术火爆之前，云原生应用的思想已经由云计算技术的领导者和分布式系统架构的推广者广泛传播。例如早在 2011 年 Heroku 的工程师提出了云原生应用的 12 要素，只不过以虚拟机技术作为云原生应用的基础实施。由于虚拟机镜像大、镜像标准不统一以及打包流程和工具不统一，导致了业界无法广泛接受的云原生应用标准，限制了云原生应用的流行。而 Docker 的出现正好解决了这些限制云原生应用构建、交付和运行的瓶颈，使得构建云原生应用成为了使用 Docker 的开发者自然而然的选择。</li>
+<li>Kubernetes 是为生产环境而设计的容器调度管理系统，对于负载均衡、服务发现、高可用、滚动升级、自动伸缩等容器云平台的功能要求有原生支持。由于 Kubernetes 在K和s间有8个字母，因此常简称 k8s。事实上，随着对 k8s 系统架构与设计理念的了解深入，会发现 K8s 系统正是处处为运行云原生应用而设计考虑;同时，随着对 k8s 系统使用的加深和推广，也会有越来越多有关云原生应用的设计模式产生出来，使得基于 k8s 系统设计和开发生产级的复杂云原生应用变得像启动一个单机版容器服务那样简单易用。</li>
+</ul>
+<h2 id="Kubernetes-基本概念和术语"><a href="#Kubernetes-基本概念和术语" class="headerlink" title="Kubernetes 基本概念和术语"></a>Kubernetes 基本概念和术语</h2><ul>
+<li>Kubernetes中的大部分概念如Node、Pod、Replication Controller、Server、Deploymeng、Job、DaemonSet 等都可以看作一种资源对象，几乎所有的资源对象都可以通过 Kubernetes提供的 kubectl 工具执行增、删、改、查等操作，并将其保存在 etcd 中持久化存储。从这个角度来看，Kubernets 其实是一个高度自动化的资源控制系统，它通过跟踪对比 etcd 存储里保存的资源期望状态与当前环境中的实际资源状态的差异来实现自动控制和自动纠错的高级功能。</li>
+<li>Master：<ul>
+<li>Kubernetes 里的 Master 指的是集群控制节点，每个 Kubernetes 集群里需要有一个Master 节点来负责整个集群的管理的控制，基本上 Kubernetes 所有的控制命令进是发给Master，Master 负责具体的执行过程，后面所有执行的命令基本都是在 Master 节点上运行的。Master 节点通常会占据一个独立的 X86 服务器，一个主要的原因是它太重要了，它是整个集群的大脑，如果它宕机或者不可用，那么所有的控制命令都将失效。</li>
+<li>Master 节点上运行着以下一组关键进程：<ul>
+<li>Kube-apiserver：提供了 HTTP Rest 接口的关键服务进程，是 Kubernetes 里所有资源的增、删、改、查等操作的唯一入口，也是集群控制入口进程。</li>
+<li>Kube-controller-manager：是 Kubernetes 里所有资源对象的自动化控制中心，可以理解为资源对象的管家。</li>
+<li>Kube-scheduler：负责资源调度的进程，相当于公交公司的调度室。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Node节点：<ul>
+<li>除了 Master、Kubernetes 集群中的其他机器被称为 Node 节点，在较早的版本中也被称为 Minion。与 Master 一样，Node 节点可以是一台物理主机，也可以是一台虚拟机。Node节点才是 Kubernetes 集群中的工作负载节点，每个 Node 都会被 Master 分配一些负载。当某个 Node 宕机时，其上的工作负载会被 Master 自动转移到其他节点上去。</li>
+<li>每个 Node 节点都运行着以下一组关键进程：<ul>
+<li>Kubelet：负责 Pod 对应的容器的创建、启停等任务，同时与 Master 节点密切协作，实现集群管理的基本功能。</li>
+<li>Kube-proxy：实现 Kubernetes Service 的通信与负载均衡机制的重要组件。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pod：<ul>
+<li>是kubernetes最重要也是最基本的概念。每个Pod都会包含一个 “根容器”，还会包含一个或者多个紧密相连的业务容器。</li>
+<li>Kubernetes为每个Pod都分配了唯一的IP地址，称之为PodIP，一个Pod里的多个容器共享PodIP地址。要求底层网络支持集群内任意两个Pod之间的直接通信，通常采用虚拟二层网络技术来实现(Flannel)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Kubernetes集群部署方案"><a href="#Kubernetes集群部署方案" class="headerlink" title="Kubernetes集群部署方案"></a>Kubernetes集群部署方案</h2><ul>
+<li>1个master + 2个node节点，单节点etcd存储群集实列，网络使用的是flannel，这是kubernetes的默认网络插件</li>
+</ul>
+<p><img src="/images/k8s_1.png" alt="k8s"></p>
+<ul>
+<li>K8s官方下载地址：<a href="https://github.com/kubernetes" target="_blank" rel="noopener">https://github.com/kubernetes</a></li>
+</ul>
+<p><img src="/images/k8s_2.png" alt="k8s"></p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">主机名</th>
+<th style="text-align:center">操作系统</th>
+<th style="text-align:center">内存</th>
+<th>IP地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">master</td>
+<td style="text-align:center">CentOS 7.2</td>
+<td style="text-align:center">4G2核</td>
+<td>192.168.5.201</td>
+</tr>
+<tr>
+<td style="text-align:center">node1</td>
+<td style="text-align:center">CentOS 7.2</td>
+<td style="text-align:center">2G1核</td>
+<td>192.168.5.202</td>
+</tr>
+<tr>
+<td style="text-align:center">node2</td>
+<td style="text-align:center">CentOS 7.2</td>
+<td style="text-align:center">2G1核</td>
+<td>192.168.5.203</td>
+</tr>
+</tbody>
+</table>
+<h2 id="关闭CentOS7自带的防火墙服务"><a href="#关闭CentOS7自带的防火墙服务" class="headerlink" title="关闭CentOS7自带的防火墙服务"></a>关闭CentOS7自带的防火墙服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld</span><br><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<h2 id="修改三台主机名为master、node1、node2"><a href="#修改三台主机名为master、node1、node2" class="headerlink" title="修改三台主机名为master、node1、node2"></a>修改三台主机名为master、node1、node2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cat /etc/hostname             //192.168.5.201</span><br><span class="line">master</span><br><span class="line">[root@node1 ~]# cat /etc/hostname              //192.168.5.202</span><br><span class="line">node1</span><br><span class="line">[root@node2 ~]# cat /etc/hostname              //192.168.5.203</span><br><span class="line">node2</span><br></pre></td></tr></table></figure>
+<h2 id="修改hosts文件（在三台服务器上同步）"><a href="#修改hosts文件（在三台服务器上同步）" class="headerlink" title="修改hosts文件（在三台服务器上同步）"></a>修改hosts文件（在三台服务器上同步）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# cat /etc/hosts</span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line">192.168.5.201 master www.k8smaster.com</span><br><span class="line">192.168.5.202 node1 www.node1.com</span><br><span class="line">192.168.5.203 node2 www.node2.com</span><br></pre></td></tr></table></figure>
+<h2 id="时间校对（三台机器都做时间校对）"><a href="#时间校对（三台机器都做时间校对）" class="headerlink" title="时间校对（三台机器都做时间校对）"></a>时间校对（三台机器都做时间校对）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# ntpdate ntp1.aliyun.com</span><br><span class="line"> 7 Jul 09:24:07 ntpdate[1225]: adjust time server 120.25.115.20 offset -0.001924 sec</span><br></pre></td></tr></table></figure>
+<h2 id="设置各节点安装程序包"><a href="#设置各节点安装程序包" class="headerlink" title="设置各节点安装程序包"></a>设置各节点安装程序包</h2><ul>
+<li>生成yum仓库配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# wget https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo -P /etc/yum.repos.d/</span><br><span class="line">[root@master ~]# cat /etc/yum.repos.d/k8s.repo</span><br><span class="line">[k8s]</span><br><span class="line">name=k8s</span><br><span class="line">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg</span><br><span class="line">enabled=1</span><br><span class="line">[root@master ~]# ls /etc/yum.repos.d/</span><br><span class="line">bak  CentOS-Base.repo  docker-ce.repo  k8s.repo</span><br><span class="line">[root@master ~]# yum repolist</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/k8s_3.png" alt="k8s"></p>
+<ul>
+<li>安装相关的程序包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# yum -y install docker-ce kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/k8s_4.png" alt="k8s"></p>
+<h2 id="初始化主节点"><a href="#初始化主节点" class="headerlink" title="初始化主节点"></a>初始化主节点</h2><ul>
+<li><p>启动dockers</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# vim /usr/lib/systemd/system/docker.service       //node节点也需要修改</span><br><span class="line">手动添加一行</span><br><span class="line">ExecStartPost=/usr/sbin/iptables -P FORWARD ACCEPT</span><br></pre></td></tr></table></figure>
+<p><img src="/images/k8s_5.png" alt="k8s"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> [root@master ~]# systemctl daemon-reload       </span><br><span class="line"> [root@master ~]# systemctl start docker</span><br><span class="line"> [root@master ~]# systemctl enable docker</span><br><span class="line"> [root@master ~]# cat /proc/sys/net/bridge/bridge-nf-call-ip6tables</span><br><span class="line">1</span><br><span class="line">[root@master ~]# cat /proc/sys/net/bridge/bridge-nf-call-iptables</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置开机自启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# vim /etc/sysconfig/kubelet               //node节点也需要修改</span><br><span class="line">KUBELET_EXTRA_ARGS=&quot;--fail-swap-on=false&quot;</span><br><span class="line">[root@master ~]# systemctl enable kubelet</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# kubeadm config print init-defaults &gt; k8s.conf      //生成初始化文件</span><br><span class="line">[root@master ~]# sed -i &quot;s/kubernetesVersion: .*/kubernetesVersion: v1.15.0/g&quot; k8s.conf      //kubernetes版本</span><br><span class="line">[root@master ~]# sed -i &quot;s/imageRepository: .*/imageRepository: registry.aliyuncs.com\/google_containers/g&quot; k8s.conf        //修改国内的镜像源</span><br><span class="line">[root@master ~]# sed -i &quot;s/advertiseAddress: .*/advertiseAddress: 192.168.5.201/g&quot; k8s.conf     //指向主节点IP</span><br><span class="line">[root@master ~]# vim  k8s.conf         //指向Pod容器的IP段</span><br><span class="line">networking:</span><br><span class="line"> dnsDomain: cluster.local</span><br><span class="line"> podSubnet: 10.244.0.0/16           //在这一段添加podSubnet参数</span><br><span class="line"> serviceSubnet: 10.96.0.0/12</span><br><span class="line">[root@master ~]# kubeadm init --config k8s.conf --ignore-preflight-errors=Swap          //初始化--config指向k8s.conf文件</span><br></pre></td></tr></table></figure>
+<p><img src="/images/k8s_6.png" alt="k8s"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> kubeadm join 192.168.5.201:6443 --token abcdef.0123456789abcdef   --discovery-token-ca-cert-hash sha256:c2534897053d8701a27e76ce1af8347a9013abcc48b0e1b047e4b30b1e02f2d7</span><br><span class="line">初始化完成后出现这条命令保存下来，添加节点的时候要用</span><br><span class="line">[root@master ~]#   mkdir -p $HOME/.kube</span><br><span class="line">[root@master ~]#   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">[root@master ~]#   sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看集群是否健康</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# kubectl  get cs</span><br><span class="line">NAME                 STATUS    MESSAGE             ERROR</span><br><span class="line">controller-manager   Healthy   ok                  </span><br><span class="line">scheduler            Healthy   ok                  </span><br><span class="line">etcd-0               Healthy   &#123;&quot;health&quot;:&quot;true&quot;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装flannel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]#wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.ym</span><br><span class="line">[root@master ~]# kubectl apply -f kube-flannel.yml</span><br><span class="line">[root@master ~]# kubectl get pods -n kube-system</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/k8s_7.png" alt="k8s"></p>
+<ul>
+<li>查看状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# kubectl get node</span><br><span class="line">NAME     STATUS   ROLES    AGE     VERSION</span><br><span class="line">master   Ready    master   9m25s   v1.15.0</span><br><span class="line">[root@master ~]# docker images            //master镜像</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/k8s_8.png" alt="k8s"></p>
+<h2 id="添加node节点"><a href="#添加node节点" class="headerlink" title="添加node节点"></a>添加node节点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# kubeadm join 192.168.5.201:6443 --token abcdef.0123456789abcdef     --discovery-token-ca-cert-hash sha256:c2534897053d8701a27e76ce1af8347a9013abcc48b0e1b047e4b30b1e02f2d7 --ignore-preflight-errors=Swap  </span><br><span class="line">[root@node2 ~]# kubeadm join 192.168.5.201:6443 --token abcdef.0123456789abcdef     --discovery-token-ca-cert-hash sha256:c2534897053d8701a27e76ce1af8347a9013abcc48b0e1b047e4b30b1e02f2d7 --ignore-preflight-errors=Swap</span><br><span class="line">[root@node1 ~]# docker images     //节点镜像</span><br></pre></td></tr></table></figure>
+<p><img src="/images/k8s_9.png" alt="k8s"></p>
+<h2 id="Master上查看添加的节点"><a href="#Master上查看添加的节点" class="headerlink" title="Master上查看添加的节点"></a>Master上查看添加的节点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# kubectl get node               //可以看到添加的两个node节点</span><br><span class="line">NAME     STATUS   ROLES    AGE     VERSION</span><br><span class="line">master   Ready    master   23m     v1.15.0</span><br><span class="line">node1    Ready    &lt;none&gt;   8m49s   v1.15.0</span><br><span class="line">node2    Ready    &lt;none&gt;   8m26s   v1.15.0</span><br><span class="line">[root@master ~]# kubectl get pods -n kube-system -o wide      //查看各个pod都是Running状态</span><br></pre></td></tr></table></figure>
+<p><img src="/images/k8s_10.png" alt="k8s"></p>
 
       
     </div>
@@ -557,7 +682,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/VPN/" rel="tag"># VPN</a>
+            <a href="/tags/k8s/" rel="tag"># k8s</a>
           
         </div>
       
@@ -570,15 +695,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/06/15/hexo安装/" rel="next" title="Hexo博客安装部署">
+                <i class="fa fa-chevron-left"></i> Hexo博客安装部署
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/18/三层交换DHCP/" rel="prev" title="三层交换机配置DHCP为不同VLAN分配IP地址">
-                三层交换机配置DHCP为不同VLAN分配IP地址 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -783,7 +908,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-你所需要的软件"><span class="nav-number">1.</span> <span class="nav-text">1.你所需要的软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-确定你的内核是否支持mppe"><span class="nav-number">2.</span> <span class="nav-text">2. 确定你的内核是否支持mppe</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-升级内核支持mppe"><span class="nav-number">3.</span> <span class="nav-text">3. 升级内核支持mppe</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-安装ppp"><span class="nav-number">4.</span> <span class="nav-text">4. 安装ppp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-安装pptpd"><span class="nav-number">5.</span> <span class="nav-text">5. 安装pptpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-配置你的pppd和pptpd"><span class="nav-number">6.</span> <span class="nav-text">6. 配置你的pppd和pptpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-打开防火墙端口"><span class="nav-number">7.</span> <span class="nav-text">7. 打开防火墙端口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-测试pptpd"><span class="nav-number">8.</span> <span class="nav-text">8. 测试pptpd</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes是什么？"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes-特点"><span class="nav-number">2.</span> <span class="nav-text">Kubernetes 特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes概述"><span class="nav-number">3.</span> <span class="nav-text">Kubernetes概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes-基本概念和术语"><span class="nav-number">4.</span> <span class="nav-text">Kubernetes 基本概念和术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes集群部署方案"><span class="nav-number">5.</span> <span class="nav-text">Kubernetes集群部署方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">6.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭CentOS7自带的防火墙服务"><span class="nav-number">7.</span> <span class="nav-text">关闭CentOS7自带的防火墙服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改三台主机名为master、node1、node2"><span class="nav-number">8.</span> <span class="nav-text">修改三台主机名为master、node1、node2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改hosts文件（在三台服务器上同步）"><span class="nav-number">9.</span> <span class="nav-text">修改hosts文件（在三台服务器上同步）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间校对（三台机器都做时间校对）"><span class="nav-number">10.</span> <span class="nav-text">时间校对（三台机器都做时间校对）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置各节点安装程序包"><span class="nav-number">11.</span> <span class="nav-text">设置各节点安装程序包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化主节点"><span class="nav-number">12.</span> <span class="nav-text">初始化主节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加node节点"><span class="nav-number">13.</span> <span class="nav-text">添加node节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Master上查看添加的节点"><span class="nav-number">14.</span> <span class="nav-text">Master上查看添加的节点</span></a></li></ol></div>
             
 
           </div>
