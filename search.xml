@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Pod生命周期</title>
+      <link href="/2019/07/23/Pod_lc/"/>
+      <url>/2019/07/23/Pod_lc/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Pod简介"><a href="#Pod简介" class="headerlink" title="Pod简介"></a>Pod简介</h2><ul><li>Pod 是 kubernetes 系统的基础单元，是由用户创建或部署的最小组件，也是 kubernetes 系统上运行容器化应用的资源对象。Kubernetes 集群中其他资源对象都是为 pod 这个资源对象做支撑来实现 kubernetes 管理应用服务的目的。Kubernetes 集群组件主要包括主节点组件API Server、Controller Manager、Scheduler 以及子节点组件 kubelet、container Runtime（如docker）、kube-proxy 等。从与集群各组件交互角度讲述 pod 的创建、运行、销毁等生命周期，Pod 生命周期中的几种不同状态包括pending、running、succeeded、failed、Unknown。</li></ul><h2 id="Pod生命周期"><a href="#Pod生命周期" class="headerlink" title="Pod生命周期"></a>Pod生命周期</h2><p><img src="/images/pod_lc.png" alt="Pod"></p><ul><li>除了创建应用容器（主容器及辅助容器之外，注意，如果集群中部署了 istio，则会在 pod 启动的时候注入一个新的和 istio 相关的容器，那是另一个美好故事的开端），还可以为 pod 对象定义其声明周期中的多种行为，如初始化容器、容器探测以及就绪性探测等。</li><li>容器生命周期的几种行为<ul><li>初始化容器初始化容器即 pod 内主容器启动之前要运行的容器，主要是做一些前置工作，初始化容器具有以下特征：<ul><li>初始化容器必须首先执行，若初始化容器运行失败，集群会一直重启初始化容器直至完成，注意，如果 pod 的重启策略为 Never，那初始化容器启动失败后就不会重启。</li><li>初始化容器必须按照定义的顺序执行，初始化容器可以通过 pod 的 spec.initContainers 进行定义。</li></ul></li></ul></li><li>生命周期钩子函数<ul><li>Kubernetes 为容器提供了两种生命周期钩子：<ol><li>Poststart:于容器创建完成之后立即运行的钩子程序。</li><li>preStop:容器终止之前立即运行的程序，是以同步方式的进行，因此其完成之前会阻塞 删除容器的调用<br>备注：钩子程序的执行方式有“Exec”和“HTTP”两种。</li></ol></li></ul></li><li>容器探测<ul><li>容器探测分为存活性探测和就绪性探测容器探测是kubelet对容器健康状态进行诊断，容器探测的方式主要以下三种：<ol><li>ExecAction：在容器中执行命令，根据返回的状态码判断容器健康状态，返回0即表示成功，否则为失败。</li><li>TCPSocketAction: 通过与容器的某TCP端口尝试建立连接进行诊断，端口能打开即为表示成功，否则失败。</li><li>HTTPGetAction：向容器指定 URL 发起 HTTP GET 请求，响应码为2xx或者是3xx为成功，否则失败。</li></ol></li></ul></li><li>Pod终止过程<ul><li>终止过程主要分为如下几个步骤：<ol><li>用户发出删除 pod 命令</li><li>Pod 对象随着时间的推移更新，在宽限期（默认情况下30秒），pod 被视为“dead”状态</li><li>将 pod 标记为“Terminating”状态</li><li>第三步同时运行，监控到 pod 对象为“Terminating”状态的同时启动 pod 关闭过程</li><li>第三步同时进行，endpoints 控制器监控到 pod 对象关闭，将pod与service匹配的 endpoints 列表中删除</li><li>如果 pod 中定义了 preStop 钩子处理程序，则 pod 被标记为“Terminating”状态时以同步的方式启动执行；若宽限期结束后，preStop 仍未执行结束，第二步会重新执行并额外获得一个2秒的小宽限期</li><li>Pod 内对象的容器收到 TERM 信号</li><li>宽限期结束之后，若存在任何一个运行的进程，pod 会收到 SIGKILL 信号</li><li>Kubelet 请求 API Server 将此 Pod 资源宽限期设置为0从而完成删除操作</li></ol></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> k8s </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Kubernetes集群搭建</title>
       <link href="/2019/07/08/kubernetes%E5%AE%89%E8%A3%85/"/>
       <url>/2019/07/08/kubernetes%E5%AE%89%E8%A3%85/</url>
