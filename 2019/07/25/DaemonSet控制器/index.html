@@ -122,16 +122,18 @@
 
 
 
-  <meta name="description" content="人生如酒 每一滴都是醉人的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="酒徒">
-<meta property="og:url" content="http://yoursite.com/archives/2019/05/index.html">
+  <meta name="description" content="DaemonSet控制器简介DaemonSet 确保全部（或者一些）Node 上运行一个 Pod 的副本。当有 Node 加入集群时，也会为他们新增一个 Pod 。当有 Node 从集群移除时，这些 Pod 也会被回收。删除的 DaemonSet 将会删除它创建的所有 Pod。 使用 DaemonSet 的一些典型用法：  运行集群存储 daemon，例如在每个 Node 上运行 glusterd">
+<meta name="keywords" content="Pod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes的DaemonSet控制器">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/DaemonSet控制器/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="人生如酒 每一滴都是醉人的">
+<meta property="og:description" content="DaemonSet控制器简介DaemonSet 确保全部（或者一些）Node 上运行一个 Pod 的副本。当有 Node 加入集群时，也会为他们新增一个 Pod 。当有 Node 从集群移除时，这些 Pod 也会被回收。删除的 DaemonSet 将会删除它创建的所有 Pod。 使用 DaemonSet 的一些典型用法：  运行集群存储 daemon，例如在每个 Node 上运行 glusterd">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-25T09:58:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="酒徒">
-<meta name="twitter:description" content="人生如酒 每一滴都是醉人的">
+<meta name="twitter:title" content="Kubernetes的DaemonSet控制器">
+<meta name="twitter:description" content="DaemonSet控制器简介DaemonSet 确保全部（或者一些）Node 上运行一个 Pod 的副本。当有 Node 加入集群时，也会为他们新增一个 Pod 。当有 Node 从集群移除时，这些 Pod 也会被回收。删除的 DaemonSet 将会删除它创建的所有 Pod。 使用 DaemonSet 的一些典型用法：  运行集群存储 daemon，例如在每个 Node 上运行 glusterd">
 
 
 
@@ -139,7 +141,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/2019/05/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/25/DaemonSet控制器/">
 
 
 
@@ -149,7 +151,7 @@
   };
 </script>
 
-  <title>归档 | 酒徒</title>
+  <title>Kubernetes的DaemonSet控制器 | 酒徒</title>
   
 
 
@@ -196,7 +198,7 @@
   
     
   
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,7 +253,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -332,28 +334,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -399,218 +379,231 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/DaemonSet控制器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="酒徒">
+      <meta itemprop="description" content="人生如酒 每一滴都是醉人的">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="酒徒">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Kubernetes的DaemonSet控制器
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-25 18:05:12 / 修改时间：17:58:31" itemprop="dateCreated datePublished" datetime="2019-07-25T18:05:12+08:00">2019-07-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/k8s/" itemprop="url" rel="index"><span itemprop="name">k8s</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/05/25/MongoDB介绍与部署应用/" itemprop="url">
+          
             
-              <span itemprop="name">MongoDB 介绍与部署应用</span>
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-25T00:39:05+08:00" content="2019-05-25">
-          05-25
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/05/22/dockerfile/" itemprop="url">
-            
-              <span itemprop="name">基于Dockerfile制作tomcat镜像</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-22T23:21:22+08:00" content="2019-05-22">
-          05-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/05/22/rsync/" itemprop="url">
-            
-              <span itemprop="name">rsync远程同步</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-22T23:10:51+08:00" content="2019-05-22">
-          05-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="DaemonSet控制器简介"><a href="#DaemonSet控制器简介" class="headerlink" title="DaemonSet控制器简介"></a>DaemonSet控制器简介</h2><p>DaemonSet 确保全部（或者一些）Node 上运行一个 Pod 的副本。当有 Node 加入集群时，也会为他们新增一个 Pod 。当有 Node 从集群移除时，这些 Pod 也会被回收。删除的 DaemonSet 将会删除它创建的所有 Pod。</p>
+<p>使用 DaemonSet 的一些典型用法：</p>
+<ul>
+<li>运行集群存储 daemon，例如在每个 Node 上运行 glusterd、ceph。</li>
+<li>在每个 Node 上运行日志收集 daemon，例如fluentd、logstash。</li>
+<li>在每个 Node 上运行监控 daemon，例如 Prometheus Node Exporter、collectd、Datadog 代理、New Relic 代理，或 Ganglia gmond。  </li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>启动一个redis配置一下filebeat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: redis</span><br><span class="line">  namespace: default</span><br><span class="line">spec:</span><br><span class="line">  replicas: 1</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: redis</span><br><span class="line">      role: logstor</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: redis</span><br><span class="line">        role: logstor</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: redis</span><br><span class="line">        image: redis:4.0-alpine</span><br><span class="line">        ports:</span><br><span class="line">        - name: redis</span><br><span class="line">          containerPort: 6379</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: DaemonSet</span><br><span class="line">metadata:</span><br><span class="line">  name: filebeat-ds</span><br><span class="line">  namespace: default</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: filebeat</span><br><span class="line">      release: stable</span><br><span class="line">  template:</span><br><span class="line">      metadata:</span><br><span class="line">        labels:</span><br><span class="line">          app: filebeat</span><br><span class="line">          release: stable</span><br><span class="line">  spec:</span><br><span class="line">    containers:</span><br><span class="line">    - name: filebeat</span><br><span class="line">      image: ikubernetes/filebeat:5.6.5-alpine</span><br><span class="line">      env:</span><br><span class="line">      - name: REDIS_HOST</span><br><span class="line">        value: redis.default.svc.cluster.local</span><br><span class="line">      - name: REDIS_LOG_LEVEL</span><br><span class="line">        value: info</span><br></pre></td></tr></table></figure>
+<p>创建Pod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@master pod_yaml]# kubectl apply -f ds-demo.yaml</span><br><span class="line">deployment.apps/redis created</span><br><span class="line">daemonset.apps/filebeat-ds created</span><br><span class="line">[root@master pod_yaml]# kubectl get pods</span><br><span class="line">NAME                     READY   STATUS    RESTARTS   AGE</span><br><span class="line">filebeat-ds-fshpf        1/1     Running   0          112s</span><br><span class="line">filebeat-ds-xlxjl        1/1     Running   0          112s</span><br><span class="line">redis-5c998b644f-glr5j   1/1     Running   0          112s</span><br><span class="line">[root@master pod_yaml]# kubectl expose deployment redis --port=6379       //公开6379端口</span><br><span class="line">service/redis exposed</span><br><span class="line">[root@master pod_yaml]# kubectl get svc       //有个redis的service，端口6379</span><br><span class="line">NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1      &lt;none&gt;        443/TCP    17d</span><br><span class="line">redis        ClusterIP   10.96.157.28   &lt;none&gt;        6379/TCP   6s</span><br></pre></td></tr></table></figure>
+<p>查看服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# kubectl get ds         //只有两个节点</span><br><span class="line">NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE</span><br><span class="line">filebeat-ds   2         2         2       2            2           &lt;none&gt;          2m38s</span><br><span class="line">[root@master ~]# kubectl get pods -o wide    //可以看到每个节点有一个filebeat-ds</span><br><span class="line">NAME                     READY   STATUS    RESTARTS   AGE     IP            NODE    NOMINATED NODE   READINESS GATES</span><br><span class="line">filebeat-ds-dpgdm        1/1     Running   0          2m58s   10.244.2.14   node2   &lt;none&gt;           &lt;none&gt;</span><br><span class="line">filebeat-ds-kx9mz        1/1     Running   0          2m58s   10.244.1.12   node1   &lt;none&gt;           &lt;none&gt;</span><br><span class="line">redis-5c998b644f-wqbnm   1/1     Running   0          2m58s   10.244.2.13   node2   &lt;none&gt;           &lt;none&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">因为没有日志所以进入交互式模式手动创建</span><br><span class="line">[root@master ~]# kubectl exec -it filebeat-ds-dpgdm -- /bin/sh     </span><br><span class="line">/ # echo &quot;aaaaaa&quot; &gt; /var/log/containers/filebeat.log</span><br><span class="line">/ # exit</span><br><span class="line">进去radis查看</span><br><span class="line">[root@master ~]# kubectl exec -it redis-5c998b644f-wqbnm -- /bin/sh   </span><br><span class="line">/data # redis-cli -h redis.default.svc.cluster.local</span><br><span class="line">redis.default.svc.cluster.local:6379&gt; KEYS *</span><br><span class="line">1) &quot;filebeat&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="滚动更新"><a href="#滚动更新" class="headerlink" title="滚动更新"></a>滚动更新</h2><p>详细查看<code>kubectl explain ds.spec.updateStrategy</code><br>默认是 rollingUpdate 是删除式更新<br>rollingUpdate 只支持 maxUnavailable，因为ds是每个主机上只能启动一个pod，所以不能有多余节点的启动</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/05/18/三层交换DHCP/" itemprop="url">
-            
-              <span itemprop="name">三层交换机配置DHCP为不同VLAN分配IP地址</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-18T23:13:06+08:00" content="2019-05-18">
-          05-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/05/15/PPTP搭建/" itemprop="url">
-            
-              <span itemprop="name">PPTP搭建</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-15T16:47:13+08:00" content="2019-05-15">
-          05-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+    <div>
+    
+        <img src="/images/weixin.jpg" width="150px" height="150px" alt="logo">
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-paw"></i>欢迎订阅<i class="fa fa-paw"></i>微信公众号-------------</div>
+    
+</div>
+
+  
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Pod/" rel="tag"># Pod</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/23/Pod_lc/" rel="next" title="Pod生命周期">
+                <i class="fa fa-chevron-left"></i> Pod生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -630,8 +623,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -771,6 +773,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DaemonSet控制器简介"><span class="nav-number">1.</span> <span class="nav-text">DaemonSet控制器简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例"><span class="nav-number">2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动更新"><span class="nav-number">4.</span> <span class="nav-text">滚动更新</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -952,6 +971,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -967,6 +990,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b55da6db2f14e186762f',
+    clientSecret: 'e3b6cbb861abd982446cf9689b414bdff0b4c6e5',
+    repo: 'jiyongkang.github.io',
+    owner: 'jiyongkang',
+    admin: ['jiyongkang'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
 
