@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Service资源清单</title>
+      <link href="/2019/09/20/k8s_service/"/>
+      <url>/2019/09/20/k8s_service/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关于Service"><a href="#关于Service" class="headerlink" title="关于Service"></a>关于Service</h2><ul><li>service是一个抽象概念，定义了一个服务的多个pod逻辑合集和访问pod的策略，一般把service称为微服务</li><li>工作模式<ul><li>userspace：Client Pod要访问Server Pod时,它先将请求发给本机内核空间中的service规则，由它再将请求,转给监听在指定套接字上的kube-proxy，kube-proxy处理完请求，并分发请求到指定Server Pod后,再将请求递交给内核空间中的service,由service将请求转给指定的Server Pod。由于其需要来回在用户空间和内核空间交互通信，因此效率很差。</li><li>iptables：此工作方式是直接由内核中的iptables规则，接受Client Pod的请求，并处理完成后，直接转发给指定ServerPod。</li><li>ipvs：它是直接有内核中的ipvs规则来接受Client Pod请求，并处理该请求,再有内核封包后，直接发给指定的Server Pod。  </li></ul></li></ul><p>&emsp;  &emsp;  以上不论哪种，kube-proxy都通过watch的方式监控着kube-APIServer写入etcd中关于Pod的最新状态信息,它一旦检查到一个Pod资源被删除了或新建，它将立即将这些变化，反应再iptables 或 ipvs规则中，以便iptables和ipvs在调度Clinet Pod请求到Server Pod时，不会出现Server Pod不存在的情况。  </p><p>&emsp;  &emsp;  自k8s1.1以后,service默认使用ipvs规则，若ipvs没有被激活，则降级使用iptables规则. 但在1.1以前，service使用的模式默认为userspace.</p><ul><li>类型<ul><li>ExternalName：创建一个dns别名指到service name上，主要是防止service name发生变化，要配合dns插件使用</li><li>ClusterIP： 默认模式，只能在集群内部访问</li><li>NodePort：在每个节点上都监听一个同样的端口号(30000-32767)，ClusterIP和路由规则会自动创建。集群外部可以访问<nodeip>:<nodeport>联系到集群内部服务，可以配合外部负载均衡使用</nodeport></nodeip></li><li>LoadBalancer：要配合支持公有云负载均衡使用比如GCE、AWS。其实也是NodePort，只不过会把<nodeip>:<nodeport>自动添加到公有云的负载均衡当中</nodeport></nodeip></li></ul></li></ul><h2 id="为什么要用service服务"><a href="#为什么要用service服务" class="headerlink" title="为什么要用service服务"></a>为什么要用service服务</h2><p>举个例子一个a服务运行3个pod，b服务要访问a服务的pod，pod的ip都不是持久化的重启之后就会有变化。<br>这时候b服务可以访问跟a服务绑定的service，service信息是固定的提前告诉b就行了，service通过Label Selector跟a服务的pod绑定,无论a的pod ip如何变化对b来说都是透明的，b服务只需要访问a绑定的service就可以。</p><h2 id="定义service"><a href="#定义service" class="headerlink" title="定义service"></a>定义service</h2><p>假定有一组 Pod，它们对外暴露了 80 端口，同时还被打上 “app=myapp” 标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    app: myapp</span><br><span class="line">  type: ClusterIP               ##默认类型ClusterIP</span><br><span class="line">  ports:</span><br><span class="line">  - protocol: TCP</span><br><span class="line">    port: 80</span><br><span class="line">    targetPort: 80</span><br></pre></td></tr></table></figure></p><h2 id="创建service"><a href="#创建service" class="headerlink" title="创建service"></a>创建service</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master pod_yaml]# kubectl apply -f service.yaml</span><br><span class="line">service/myapp created</span><br></pre></td></tr></table></figure><p><img src="/images/svc1.png" alt="image"></p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>通过访问service的IP地址可以访问到pod节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# curl 10.96.142.129/hostname.html</span><br><span class="line">myapp-deploy-f4db5d79c-mrr8f</span><br><span class="line">[root@master ~]# curl 10.96.142.129/hostname.html</span><br><span class="line">myapp-deploy-f4db5d79c-lr9m6</span><br><span class="line">[root@master ~]# curl 10.96.142.129/hostname.html</span><br><span class="line">myapp-deploy-f4db5d79c-mrr8f</span><br><span class="line">[root@master ~]# curl 10.96.142.129/hostname.html</span><br><span class="line">myapp-deploy-f4db5d79c-n29rx</span><br><span class="line">[root@master ~]# curl 10.96.142.129/hostname.html</span><br><span class="line">myapp-deploy-f4db5d79c-n29rx</span><br><span class="line">[root@master ~]#</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> k8s </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MVideo影视自动采集系统</title>
       <link href="/2019/09/07/Mvideo/"/>
       <url>/2019/09/07/Mvideo/</url>
