@@ -1,0 +1,3 @@
+http://www.bistros.cn/2019/09/20/k8s_service/
+http://www.bistros.cn/2019/09/07/Mvideo/
+http://www.bistros.cn/2019/07/25/DaemonSet控制器/
