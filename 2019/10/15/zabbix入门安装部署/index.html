@@ -130,17 +130,29 @@
 
 
 
-  <meta name="description" content="人生如酒 每一滴都是醉人的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="酒徒">
-<meta property="og:url" content="http://www.bistros.cn/tags/index.html">
+  <meta name="description" content="Zabbix简介Zabbix 是一个高度集成的网络监控解决方案，可以提供企业级的开源分布式监控解决方案。 被监控端：主机通过安装 agent 方式采集数据，网络设备通过 SNMP 方式采集数据Server端：通过收集 SNMP 和 agent 发送的数据，写入数据库（MySQL，ORACLE 等），再通过 php+apache 在 web 前端展示。  Zabbix运行方式：    Server：">
+<meta name="keywords" content="zabbix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zabbix入门安装部署">
+<meta property="og:url" content="http://www.bistros.cn/2019/10/15/zabbix入门安装部署/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="人生如酒 每一滴都是醉人的">
+<meta property="og:description" content="Zabbix简介Zabbix 是一个高度集成的网络监控解决方案，可以提供企业级的开源分布式监控解决方案。 被监控端：主机通过安装 agent 方式采集数据，网络设备通过 SNMP 方式采集数据Server端：通过收集 SNMP 和 agent 发送的数据，写入数据库（MySQL，ORACLE 等），再通过 php+apache 在 web 前端展示。  Zabbix运行方式：    Server：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-24T16:29:41.282Z">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix1.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix2.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix3.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix4.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix5.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix6.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix7.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix8.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix9.png">
+<meta property="og:image" content="http://www.bistros.cn/images/zabbix10.png">
+<meta property="og:updated_time" content="2019-10-15T14:02:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="酒徒">
-<meta name="twitter:description" content="人生如酒 每一滴都是醉人的">
+<meta name="twitter:title" content="zabbix入门安装部署">
+<meta name="twitter:description" content="Zabbix简介Zabbix 是一个高度集成的网络监控解决方案，可以提供企业级的开源分布式监控解决方案。 被监控端：主机通过安装 agent 方式采集数据，网络设备通过 SNMP 方式采集数据Server端：通过收集 SNMP 和 agent 发送的数据，写入数据库（MySQL，ORACLE 等），再通过 php+apache 在 web 前端展示。  Zabbix运行方式：    Server：">
+<meta name="twitter:image" content="http://www.bistros.cn/images/zabbix1.png">
 
 
 
@@ -148,7 +160,7 @@
 
   
   
-  <link rel="canonical" href="http://www.bistros.cn/tags/">
+  <link rel="canonical" href="http://www.bistros.cn/2019/10/15/zabbix入门安装部署/">
 
 
 
@@ -158,7 +170,7 @@
   };
 </script>
 
-  <title>标签 | 酒徒</title>
+  <title>zabbix入门安装部署 | 酒徒</title>
   
 
 
@@ -294,7 +306,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -340,28 +352,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -410,96 +400,232 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bistros.cn/2019/10/15/zabbix入门安装部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="酒徒">
+      <meta itemprop="description" content="人生如酒 每一滴都是醉人的">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="酒徒">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">zabbix入门安装部署
+
               
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-              目前共计 10 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              
-                <a href="/tags/DHCP/" style="font-size: 12px; color: #ccc">DHCP</a> <a href="/tags/Docker/" style="font-size: 12px; color: #ccc">Docker</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/MongoDB/" style="font-size: 12px; color: #ccc">MongoDB</a> <a href="/tags/Pod/" style="font-size: 12px; color: #ccc">Pod</a> <a href="/tags/VPN/" style="font-size: 12px; color: #ccc">VPN</a> <a href="/tags/k8s/" style="font-size: 30px; color: #111">k8s</a> <a href="/tags/rsync/" style="font-size: 12px; color: #ccc">rsync</a> <a href="/tags/zabbix/" style="font-size: 12px; color: #ccc">zabbix</a> <a href="/tags/源码/" style="font-size: 12px; color: #ccc">源码</a>
-              
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-15 22:02:44 / 修改时间：22:02:25" itemprop="dateCreated datePublished" datetime="2019-10-15T22:02:44+08:00">2019-10-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="Zabbix简介"><a href="#Zabbix简介" class="headerlink" title="Zabbix简介"></a>Zabbix简介</h2><p>Zabbix 是一个高度集成的网络监控解决方案，可以提供企业级的开源分布式监控解决方案。</p>
+<p>被监控端：主机通过安装 agent 方式采集数据，网络设备通过 SNMP 方式采集数据<br>Server端：通过收集 SNMP 和 agent 发送的数据，写入数据库（MySQL，ORACLE 等），再通过 php+apache 在 web 前端展示。</p>
+<ul>
+<li><p>Zabbix运行方式：  </p>
+<ul>
+<li>Server：Zabbix Server 需运行在 LAMP（Linux+Apache+Mysql+PHP）环境下（或者 LNMP），对硬件要求低   </li>
+<li>Agent：目前已有的 agent 基本支持市面常见的 OS，包含 Linux、HPUX、Solaris、Sun、 windows SNMP：支持各类常见的网络设备</li>
+</ul>
+</li>
+<li><p>Zabbix功能：  </p>
+<ul>
+<li>具备常见的商业监控软件所具备的功能（主机的性能监控、网络设备性能监控、数据库 性能监控、FTP 等通用协议监控、多种告警方式、详细的报表图表绘制）   </li>
+<li>支持自动发现网络设备和服务器（可以通过配置自动发现服务器规则来实现）  </li>
+<li>支持自动发现（lowdiscovery）key 实现动态监控项的批量监控（需写脚本）   </li>
+<li>支持分布式，能集中展示、管理分布式的监控点 扩展性强，server 提供通用接口（api 功能），可以自己开发完善各类监控（根据相关接 口编写程序实现）  </li>
+<li>编写插件容易，可以自定义监控项，报警级别的设置。</li>
+<li>数据收集<br>。 可用和性能检测<br>。 支持 snmp(包括 trapping and polling)，IPMI，JMX，SSH，TELNET<br>。 自定义的检测<br>。 自定义收集数据的频率<br>。 服务器/代理和客户端模式</li>
+<li>灵活的触发器<br>。 您可以定义非常灵活的问题阈值，称为触发器，从后端数据库的参考值<br>。 高可定制的报警<br>。 发送通知，可定制的报警升级，收件人，媒体类型</li>
+</ul>
+</li>
+</ul>
+<p><strong>优点：</strong><br>Server 对设备性能要求低 支持设备多，自带多种监控模板<br>支持分布式集中管理，有自动发现功能，可以实现自动化监控<br>开放式接口，扩展性强，插件编写容易<br>当监控的 item 比较多服务器队列比较大时可以采用被动状态，被监控客户端主动从 server 端去下载需要监控的 item 然后取数据上传到 server 端。这种方式对服务器的负载比较 小。<br>Api 的支持，方便与其他系统结合<br><strong>缺点：</strong><br>需在被监控主机上安装 agent，所有数据都存在数据库里，产生的数据据很大,瓶颈主要 在数据库。</p>
+<h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><p>环境：centos7<br>软件：Apache,php,mysql5.7,zabbix3.0<br>注：PHP版本装的不对有可能不能正常访问zabbix控制台</p>
+<p><strong>安装PHP</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</span><br><span class="line">yum -y install  php-fpm php-mysql php-gd php-bcmath php-mbstring php-xml</span><br></pre></td></tr></table></figure></p>
+<p>注：先安装zabbix，不然会遇到一些依赖包版本不一样导致zabbix-web装不上</p>
+<p><strong>安装Mysql</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql57-community-release-el7-10.noarch.rpm</span><br><span class="line">rpm -ivh mysql57-community-release-el7-10.noarch.rpm</span><br><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure></p>
+<p><strong>创建zabbix库和用户</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# vim /etc/my.cnf      ##取消用户的密码验证，再最下添加以下两行</span><br><span class="line">plugin-load=validate_password.so</span><br><span class="line">validate-password=OFF</span><br><span class="line">[root@node1 ~]# systemctl start mysqld     ##开启数据库</span><br><span class="line">[root@node1 ~]# grep &apos;temporary password&apos; /var/log/mysqld.log     ##查看默认密码</span><br><span class="line">2019-10-14T16:14:16.657391Z 1 [Note] A temporary password is generated for root@localhost: fSqAU_bNu4gt</span><br><span class="line">[root@node1 ~]# mysql -uroot -p</span><br><span class="line">Enter password: fSqAU_bNu4gt</span><br><span class="line"></span><br><span class="line">mysql&gt;  ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;     ##修改root密码</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; CREATE DATABASE IF NOT EXISTS zabbix CHARACTER SET utf8;    ##创建zabbix库</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; CREATE USER &apos;zabbix&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;zabbix&apos;;    ##创建名为zabbix密码为zabbix的用户</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;  GRANT ALL ON zabbix.* TO &apos;zabbix&apos;@&apos;localhost&apos;;     ##给zabbix用户的zabbix库所有权限</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;                 ##刷新生效</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>安装zabbix</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# rpm -ivh https://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-1.el7.noarch.rpm</span><br><span class="line">[root@node1 ~]# yum -y install zabbix-agent zabbix-server-mysql zabbix-web-mysqll zabbix-web zabbix-get</span><br><span class="line">[root@node1 ~]# gzip -d /usr/share/doc/zabbix-server-mysql-3.0.28/create.sql.gz  </span><br><span class="line">[root@node1 ~]# mysql -uzabbix -p -Dzabbix &lt; /usr/share/doc/zabbix-server-mysql-3.0.28/create.sql  ##导入数据</span><br><span class="line">Enter password: zabbix</span><br><span class="line">[root@node1 ~]# mysql -uzabbix -p</span><br><span class="line">Enter password: zabbix</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line"></span><br><span class="line">mysql&gt; use zabbix</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">+----------------------------+</span><br><span class="line">| Tables_in_zabbix           |</span><br><span class="line">+----------------------------+</span><br><span class="line">| acknowledges               |</span><br><span class="line">| actions                    |</span><br><span class="line">| alerts                     |</span><br><span class="line">| application_discovery      |</span><br><span class="line">| application_prototype      |</span><br><span class="line">| application_template       |</span><br><span class="line">| applications               |</span><br><span class="line">| auditlog                   |</span><br><span class="line"></span><br><span class="line">[root@node1 ~]# vim /etc/httpd/conf.d/zabbix.conf     ##修改时区</span><br><span class="line"> php_value date.timezone Asia/Shanghai</span><br><span class="line">[root@node1 ~]# vim /etc/zabbix/zabbix_server.conf      ##修改一下参数</span><br><span class="line">DBName=zabbix              #库名</span><br><span class="line">DBUser=zabbix              #用户名</span><br><span class="line">DBPort=3306                #数据库端口</span><br><span class="line">DBPassword=zabbix          #用户密码</span><br></pre></td></tr></table></figure></p>
+<p><strong>启动服务</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 ~]# systemctl start httpd</span><br><span class="line">[root@node1 ~]# systemctl start php-fpm</span><br><span class="line">[root@node1 ~]# systemctl start zabbix-server</span><br><span class="line">[root@node1 ~]# systemctl start zabbix-agent</span><br><span class="line">[root@node1 ~]# systemctl start mysqld</span><br><span class="line">[root@node1 ~]# ss -tnl</span><br><span class="line">State      Recv-Q Send-Q                    Local Address:Port                                   Peer Address:Port              </span><br><span class="line">LISTEN     0      128                                   *:80                                                *:*                  </span><br><span class="line">LISTEN     0      128                                   *:22                                                *:*                  </span><br><span class="line">LISTEN     0      100                           127.0.0.1:25                                                *:*                  </span><br><span class="line">LISTEN     0      128                                   *:10050    ##Agent端口                              *:*                  </span><br><span class="line">LISTEN     0      128                                   *:10051    ##Server端口                             *:*                  </span><br><span class="line">LISTEN     0      128                           127.0.0.1:9000                                              *:*                  </span><br><span class="line">LISTEN     0      128                                  :::22                                               :::*                  </span><br><span class="line">LISTEN     0      100                                 ::1:25                                               :::*                  </span><br><span class="line">LISTEN     0      128                                  :::10050                                            :::*                  </span><br><span class="line">LISTEN     0      128                                  :::10051                                            :::*                  </span><br><span class="line">LISTEN     0      80                                   :::3306                                             :::*</span><br></pre></td></tr></table></figure>
+<h2 id="访问zabbix"><a href="#访问zabbix" class="headerlink" title="访问zabbix"></a>访问zabbix</h2><p><strong>使用游览器访问</strong><br><code>hostIP/zabbix</code><br><img src="/images/zabbix1.png" alt="image"><br><img src="/images/zabbix2.png" alt="image"><br><img src="/images/zabbix3.png" alt="image"><br><img src="/images/zabbix4.png" alt="image"><br><img src="/images/zabbix5.png" alt="image"><br><img src="/images/zabbix6.png" alt="image"><br><img src="/images/zabbix7.png" alt="image"><br><img src="/images/zabbix8.png" alt="image"><br><img src="/images/zabbix9.png" alt="image"><br><img src="/images/zabbix10.png" alt="image"></p>
+<p><strong>已经中文界面了，尽情奔跑吧</strong></p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+<div>
+  
+    <div>
+ 
+ <div style="text-align:center;color: #ccc;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+ 
+</div>
+
+  
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/zabbix/" rel="tag"># zabbix</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/20/k8s_service/" rel="next" title="Service资源清单">
+                <i class="fa fa-chevron-left"></i> Service资源清单
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -532,8 +658,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -677,6 +812,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zabbix简介"><span class="nav-number">1.</span> <span class="nav-text">Zabbix简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署"><span class="nav-number">2.</span> <span class="nav-text">安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问zabbix"><span class="nav-number">3.</span> <span class="nav-text">访问zabbix</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
