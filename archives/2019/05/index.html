@@ -46,6 +46,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
 
 
 
@@ -109,7 +113,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: true,
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -421,7 +425,7 @@
         
           
         
-        嗯..! 目前共计 12 篇日志。 继续努力。
+        嗯..! 目前共计 13 篇日志。 继续努力。
       </span>
       
 
@@ -656,7 +660,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -911,6 +915,8 @@
 
 
 
+  
+
 
 
   
@@ -943,6 +949,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
   
@@ -1352,6 +1361,22 @@
 <!-- 代码块复制功能 -->
 <script type="text/javascript" src="/js/src/clipboard.js"></script>  
 <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 </body>
 </html>
 <!-- 页面点击小红心 -->

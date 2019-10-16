@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Zabbix入门之添加主机</title>
+      <link href="/2019/10/16/zabbi%E6%B7%BB%E5%8A%A0%E4%B8%BB%E6%9C%BA/"/>
+      <url>/2019/10/16/zabbi%E6%B7%BB%E5%8A%A0%E4%B8%BB%E6%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<p><strong>添加主机有两种方式</strong>  </p><ul><li>手动添加主机：需要一台一台添加</li><li>自动发现主机：通过IP范围和key来发现符合要求的主机  </li></ul><p>注：被监控端都需要安装zabbix-agent并启动该服务</p><p><strong>手动添加</strong><br><img src="/images/zabbix11.png" alt="image"><br><img src="/images/zabbix12.png" alt="image">  </p><p><strong>自动发现</strong><br>创建自动发现规则<br><img src="/images/zabbix13.png" alt="image"><br>延迟选项尽量不要选择时间过长，否则会导致主机发现时间很慢<br><img src="/images/zabbix14.png" alt="image"><br><img src="/images/zabbix15.png" alt="image"><br>这个时候等待几分钟，会在zabbix界面–监测中–自动发现，可以看到自动发现的主机<br><img src="/images/zabbix16.png" alt="image"><br><strong>如果发现了主机IP，但是主机名是bogon1…n,需要在zabbix-server端上修改hosts文件在其中加入IP和对应主机名。</strong></p><p><strong>如果不能发现主机，首先检查agent是否启动，如果启动；再次检查agent配置文件指向serverIP是否正确，如果正确；可以检查自动发现规则IP范围是否有错误。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> zabbix </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>zabbix入门安装部署</title>
       <link href="/2019/10/15/zabbix%E5%85%A5%E9%97%A8%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/"/>
       <url>/2019/10/15/zabbix%E5%85%A5%E9%97%A8%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</url>

@@ -46,6 +46,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
 
 
 
@@ -109,7 +113,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: true,
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -483,7 +487,7 @@
             </div>
             <div class="tag-cloud-tags">
               
-                <a href="/tags/DHCP/" style="font-size: 12px; color: #ccc">DHCP</a> <a href="/tags/Docker/" style="font-size: 12px; color: #ccc">Docker</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/MongoDB/" style="font-size: 12px; color: #ccc">MongoDB</a> <a href="/tags/Pod/" style="font-size: 12px; color: #ccc">Pod</a> <a href="/tags/VPN/" style="font-size: 12px; color: #ccc">VPN</a> <a href="/tags/k8s/" style="font-size: 30px; color: #111">k8s</a> <a href="/tags/rsync/" style="font-size: 12px; color: #ccc">rsync</a> <a href="/tags/zabbix/" style="font-size: 12px; color: #ccc">zabbix</a> <a href="/tags/源码/" style="font-size: 12px; color: #ccc">源码</a>
+                <a href="/tags/DHCP/" style="font-size: 12px; color: #ccc">DHCP</a> <a href="/tags/Docker/" style="font-size: 12px; color: #ccc">Docker</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/MongoDB/" style="font-size: 12px; color: #ccc">MongoDB</a> <a href="/tags/Pod/" style="font-size: 12px; color: #ccc">Pod</a> <a href="/tags/VPN/" style="font-size: 12px; color: #ccc">VPN</a> <a href="/tags/k8s/" style="font-size: 30px; color: #111">k8s</a> <a href="/tags/rsync/" style="font-size: 12px; color: #ccc">rsync</a> <a href="/tags/zabbix/" style="font-size: 21px; color: #6f6f6f">zabbix</a> <a href="/tags/源码/" style="font-size: 12px; color: #ccc">源码</a>
               
             </div>
           </div>
@@ -550,7 +554,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -805,6 +809,8 @@
 
 
 
+  
+
 
 
   
@@ -837,6 +843,9 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
   
@@ -1281,6 +1290,22 @@
 <!-- 代码块复制功能 -->
 <script type="text/javascript" src="/js/src/clipboard.js"></script>  
 <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 </body>
 </html>
 <!-- 页面点击小红心 -->
