@@ -1,3 +1,3 @@
+http://www.bistros.cn/2019/10/22/zabbix邮件告警/
 http://www.bistros.cn/2019/10/16/zabbi添加主机/
 http://www.bistros.cn/2019/10/15/zabbix入门安装部署/
-http://www.bistros.cn/2019/09/20/k8s_service/
