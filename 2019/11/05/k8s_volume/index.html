@@ -134,16 +134,20 @@
 
 
 
-  <meta name="description" content="人生如酒 每一滴都是醉人的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="酒徒">
-<meta property="og:url" content="http://www.bistros.cn/tags/Hexo/index.html">
+  <meta name="description" content="简介容器中的磁盘文件是临时的，在容器中运行时，对于非平凡的应用程序会出现一些问题。首先，当容器崩溃时，kubelet将重新启动它，但是文件将丢失-容器以干净状态启动。在一个Pod中运行多个容器时，通常需要在这些容器之间共享文件。Kubernetes Volume抽象解决了这两个问题。   存储类型：  本地 (emptyDir、hostPath) 网络 (NFS、Ceph、Glusterfs) 公">
+<meta name="keywords" content="k8s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes之Volume">
+<meta property="og:url" content="http://www.bistros.cn/2019/11/05/k8s_volume/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="人生如酒 每一滴都是醉人的">
+<meta property="og:description" content="简介容器中的磁盘文件是临时的，在容器中运行时，对于非平凡的应用程序会出现一些问题。首先，当容器崩溃时，kubelet将重新启动它，但是文件将丢失-容器以干净状态启动。在一个Pod中运行多个容器时，通常需要在这些容器之间共享文件。Kubernetes Volume抽象解决了这两个问题。   存储类型：  本地 (emptyDir、hostPath) 网络 (NFS、Ceph、Glusterfs) 公">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.bistros.cn/images/volume-gitRepo.png">
+<meta property="og:updated_time" content="2019-11-05T13:00:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="酒徒">
-<meta name="twitter:description" content="人生如酒 每一滴都是醉人的">
+<meta name="twitter:title" content="Kubernetes之Volume">
+<meta name="twitter:description" content="简介容器中的磁盘文件是临时的，在容器中运行时，对于非平凡的应用程序会出现一些问题。首先，当容器崩溃时，kubelet将重新启动它，但是文件将丢失-容器以干净状态启动。在一个Pod中运行多个容器时，通常需要在这些容器之间共享文件。Kubernetes Volume抽象解决了这两个问题。   存储类型：  本地 (emptyDir、hostPath) 网络 (NFS、Ceph、Glusterfs) 公">
+<meta name="twitter:image" content="http://www.bistros.cn/images/volume-gitRepo.png">
 
 
 
@@ -151,7 +155,7 @@
 
   
   
-  <link rel="canonical" href="http://www.bistros.cn/tags/Hexo/">
+  <link rel="canonical" href="http://www.bistros.cn/2019/11/05/k8s_volume/">
 
 
 
@@ -161,7 +165,7 @@
   };
 </script>
 
-  <title>标签: Hexo | 酒徒</title>
+  <title>Kubernetes之Volume | 酒徒</title>
   
 
 
@@ -208,7 +212,7 @@
   
     
   
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,7 +301,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -344,28 +348,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -411,57 +393,271 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Hexo<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
 
-      <h2 class="post-title">
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bistros.cn/2019/11/05/k8s_volume/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="酒徒">
+      <meta itemprop="description" content="人生如酒 每一滴都是醉人的">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="酒徒">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/06/15/hexo安装/" itemprop="url">
-            
-              <span itemprop="name">Hexo博客安装部署</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Kubernetes之Volume
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T22:02:12+08:00" content="2019-06-15">
-          06-15
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-05 21:01:55 / 修改时间：21:00:33" itemprop="dateCreated datePublished" datetime="2019-11-05T21:01:55+08:00">2019-11-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>容器中的磁盘文件是临时的，在容器中运行时，对于非平凡的应用程序会出现一些问题。首先，当容器崩溃时，kubelet将重新启动它，但是文件将丢失-容器以干净状态启动。在一个Pod中运行多个容器时，通常需要在这些容器之间共享文件。Kubernetes Volume抽象解决了这两个问题。  </p>
+<p><strong>存储类型：</strong></p>
+<ul>
+<li>本地 (emptyDir、hostPath)</li>
+<li>网络 (NFS、Ceph、Glusterfs)</li>
+<li>公有云 (AWS、EBS)</li>
+</ul>
+<h2 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a>emptyDir</h2><p>临时目录，缓存，随着pod消失而消失<br>创建一个空卷，挂载到Pod中的容器。Pod删除该卷也会被删除。<br>应用场景：Pod中容器之间数据共享  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: pod-demo</span><br><span class="line">  namespace: default</span><br><span class="line">  labels:</span><br><span class="line">    app: myapp</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: myapp</span><br><span class="line">    image: ikubernetes/myapp:v1</span><br><span class="line">    imagePullPolicy: IfNotPresent</span><br><span class="line">    ports:</span><br><span class="line">    - name: http</span><br><span class="line">      containerPort: 80</span><br><span class="line">    volumeMounts:</span><br><span class="line">    - name: html</span><br><span class="line">      mountPath: /usr/share/nginx/html/</span><br><span class="line">  - name: busybox</span><br><span class="line">    image: busybox:latest</span><br><span class="line">    imagePullPolicy: IfNotPresent</span><br><span class="line">    volumeMounts:</span><br><span class="line">    - name: html</span><br><span class="line">      mountPath: /data/</span><br><span class="line">    command:</span><br><span class="line">    - &quot;/bin/sh&quot;</span><br><span class="line">    - &quot;-c&quot;</span><br><span class="line">    - &quot;while true; do echo $(date) &gt;&gt; /data/index.html; sleep 2; done&quot;</span><br><span class="line">  volumes:</span><br><span class="line">  - name: html</span><br><span class="line">    emptyDir: &#123;&#125;</span><br><span class="line">##同一个pod中两个容器共享一个存储卷</span><br></pre></td></tr></table></figure>
+<h2 id="hostPath"><a href="#hostPath" class="headerlink" title="hostPath"></a>hostPath</h2><p>挂载Node文件系统上文件或者目录到Pod中的容器。 要考虑到pod的生命周期是短暂的，当pod重新生成的时候，也许就会换node节点，这时导致原先的共享目录就无法使用。<br>应用场景：Pod中容器需要访问宿主机文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: pod-demo</span><br><span class="line">  namespace: default</span><br><span class="line">  labels:</span><br><span class="line">    app: myapp</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: myapp</span><br><span class="line">    image: ikubernetes/myapp:v1</span><br><span class="line">    imagePullPolicy: IfNotPresent</span><br><span class="line">    ports:</span><br><span class="line">    - name: http</span><br><span class="line">      containerPort: 80</span><br><span class="line">    volumeMounts:</span><br><span class="line">    - name: html</span><br><span class="line">      mountPath: /usr/share/nginx/html/</span><br><span class="line">  volumes:</span><br><span class="line">  - name: html</span><br><span class="line">    hostPath:</span><br><span class="line">      path: /data/</span><br><span class="line">      type: DirectoryOrCreate</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>Type类型</th>
+<th>代表含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>为空（就是什么也不写）</td>
+<td>空字符串（默认）用于向后兼容，这意味着在安装hostPath卷之前不会执行任何检查</td>
+</tr>
+<tr>
+<td>DirectoryOrCreate</td>
+<td>如果给定路径中不存在任何内容，则将根据需要创建一个空目录，权限设置为0755，与Kubelet具有相同的组和所有权。</td>
+</tr>
+<tr>
+<td>Directory</td>
+<td>目录必须存在于给定路径中</td>
+</tr>
+<tr>
+<td>FileOrCreate</td>
+<td>如果给定路径中不存在任何内容，则会根据需要创建一个空文件，权限设置为0644，与Kubelet具有相同的组和所有权。</td>
+</tr>
+<tr>
+<td>File</td>
+<td>文件必须存在于给定路径中</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td>UNIX套接字必须存在于给定路径中</td>
+</tr>
+<tr>
+<td>CharDevice</td>
+<td>字符设备必须存在于给定路径中</td>
+</tr>
+<tr>
+<td>BlockDevice</td>
+<td>块设备必须存在于给定路径中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注：介绍凡是带必须的，表示如果没有先觉条件，那么直接报错</strong></p>
+<h2 id="gitRepo"><a href="#gitRepo" class="headerlink" title="gitRepo"></a>gitRepo</h2><p><img src="/images/volume-gitRepo.png" alt="image"><br>可以在pod创建的时候把git的代码同步克隆下来，前提是宿主机有git命令，是依赖于宿主机做的，需要注意的是，无论pod中的代码修改或者是git仓库中的代码修改都不会互相影响，也就是说我git仓库代码更新了，pod还保持 刚clone下来的样子。当然这个也可以实现，在pod中来一个辅助容器，实时同步git仓库代码。</p>
+<h2 id="PersistentVolume-NFS"><a href="#PersistentVolume-NFS" class="headerlink" title="PersistentVolume-NFS"></a>PersistentVolume-NFS</h2><p><strong>部署nfs共享服务</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@nfs ~]# yum -y install nfs-utils</span><br><span class="line">[root@nfs ~]# mkdir /data/volumes -pv</span><br><span class="line">[root@nfs ~]# vim /etc/exports</span><br><span class="line">/data/volumes    192.168.5.0/24(rw,no_root_squash)</span><br></pre></td></tr></table></figure></p>
+<p><strong>nfs-pod</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: pod-nfs</span><br><span class="line">  namespace: default</span><br><span class="line">  labels:</span><br><span class="line">    app: myapp</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: myapp</span><br><span class="line">    image: ikubernetes/myapp:v1</span><br><span class="line">    imagePullPolicy: IfNotPresent</span><br><span class="line">    ports:</span><br><span class="line">    - name: http</span><br><span class="line">      containerPort: 80</span><br><span class="line">    volumeMounts:</span><br><span class="line">    - name: html</span><br><span class="line">      mountPath: /usr/share/nginx/html/</span><br><span class="line">  volumes:</span><br><span class="line">  - name: html</span><br><span class="line">    nfs:</span><br><span class="line">      path: /data/volumes           ## nfs服务的路径</span><br><span class="line">      server: www.nfs.com           ## nfs的地址</span><br><span class="line"></span><br><span class="line">## 可以多个pod挂载</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+<div>
+  
+    <div>
+ 
+ <div style="text-align:center;color: #ccc;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+ 
+</div>
+
+  
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/k8s/" rel="tag"># k8s</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/22/zabbix邮件告警/" rel="next" title="Zabbix邮件告警">
+                <i class="fa fa-chevron-left"></i> Zabbix邮件告警
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -481,8 +677,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -626,6 +831,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emptyDir"><span class="nav-number">2.</span> <span class="nav-text">emptyDir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hostPath"><span class="nav-number">3.</span> <span class="nav-text">hostPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitRepo"><span class="nav-number">4.</span> <span class="nav-text">gitRepo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PersistentVolume-NFS"><span class="nav-number">5.</span> <span class="nav-text">PersistentVolume-NFS</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -812,6 +1034,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -827,6 +1053,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b55da6db2f14e186762f',
+    clientSecret: 'e3b6cbb861abd982446cf9689b414bdff0b4c6e5',
+    repo: 'jiyongkang.github.io',
+    owner: 'jiyongkang',
+    admin: ['jiyongkang'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
 
