@@ -134,16 +134,22 @@
 
 
 
-  <meta name="description" content="人生如酒 每一滴都是醉人的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="酒徒">
-<meta property="og:url" content="http://www.bistros.cn/categories/Linux/index.html">
+  <meta name="description" content="PV和PVC的概念 PersistentVolume（PV）是集群中的一部分存储，已由管理员配置或使用存储类动态配置。它是群集中的资源，就像节点是群集资源一样。PV是类似于Volumes的卷插件，但是其生命周期与使用PV的任何单个Pod无关。此API对象捕获NFS，iSCSI或特定于云提供商的存储系统的存储实现的详细信息。 PersistentVolumeClaim（PVC）是由用户进行存储的请求">
+<meta name="keywords" content="k8s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k8s之PV和PVC">
+<meta property="og:url" content="http://www.bistros.cn/2019/11/07/k8s_pv-pvc/index.html">
 <meta property="og:site_name" content="酒徒">
-<meta property="og:description" content="人生如酒 每一滴都是醉人的">
+<meta property="og:description" content="PV和PVC的概念 PersistentVolume（PV）是集群中的一部分存储，已由管理员配置或使用存储类动态配置。它是群集中的资源，就像节点是群集资源一样。PV是类似于Volumes的卷插件，但是其生命周期与使用PV的任何单个Pod无关。此API对象捕获NFS，iSCSI或特定于云提供商的存储系统的存储实现的详细信息。 PersistentVolumeClaim（PVC）是由用户进行存储的请求">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.bistros.cn/images/k8s_pvc1.png">
+<meta property="og:image" content="http://www.bistros.cn/images/k8s_pvc2.png">
+<meta property="og:image" content="http://www.bistros.cn/images/k8s_pvc3.png">
+<meta property="og:updated_time" content="2019-11-06T16:26:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="酒徒">
-<meta name="twitter:description" content="人生如酒 每一滴都是醉人的">
+<meta name="twitter:title" content="k8s之PV和PVC">
+<meta name="twitter:description" content="PV和PVC的概念 PersistentVolume（PV）是集群中的一部分存储，已由管理员配置或使用存储类动态配置。它是群集中的资源，就像节点是群集资源一样。PV是类似于Volumes的卷插件，但是其生命周期与使用PV的任何单个Pod无关。此API对象捕获NFS，iSCSI或特定于云提供商的存储系统的存储实现的详细信息。 PersistentVolumeClaim（PVC）是由用户进行存储的请求">
+<meta name="twitter:image" content="http://www.bistros.cn/images/k8s_pvc1.png">
 
 
 
@@ -151,7 +157,7 @@
 
   
   
-  <link rel="canonical" href="http://www.bistros.cn/categories/Linux/">
+  <link rel="canonical" href="http://www.bistros.cn/2019/11/07/k8s_pv-pvc/">
 
 
 
@@ -161,7 +167,7 @@
   };
 </script>
 
-  <title>分类: Linux | 酒徒</title>
+  <title>k8s之PV和PVC | 酒徒</title>
   
 
 
@@ -208,7 +214,7 @@
   
     
   
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,7 +286,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -344,28 +350,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -411,295 +395,244 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Linux<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
 
-      <h2 class="post-title">
+
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bistros.cn/2019/11/07/k8s_pv-pvc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="酒徒">
+      <meta itemprop="description" content="人生如酒 每一滴都是醉人的">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="酒徒">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/11/07/k8s_pv-pvc/" itemprop="url">
-            
-              <span itemprop="name">k8s之PV和PVC</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">k8s之PV和PVC
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-11-07T00:27:25+08:00" content="2019-11-07">
-          11-07
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-07 00:27:25 / 修改时间：00:26:15" itemprop="dateCreated datePublished" datetime="2019-11-07T00:27:25+08:00">2019-11-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/11/05/k8s_volume/" itemprop="url">
-            
-              <span itemprop="name">Kubernetes之Volume</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-11-05T21:01:55+08:00" content="2019-11-05">
-          11-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/22/zabbix邮件告警/" itemprop="url">
-            
-              <span itemprop="name">Zabbix邮件告警</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-22T12:14:35+08:00" content="2019-10-22">
-          10-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/16/zabbi添加主机/" itemprop="url">
-            
-              <span itemprop="name">Zabbix入门之添加主机</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-16T22:12:18+08:00" content="2019-10-16">
-          10-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/15/zabbix入门安装部署/" itemprop="url">
-            
-              <span itemprop="name">zabbix入门安装部署</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-15T22:02:44+08:00" content="2019-10-15">
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/09/20/k8s_service/" itemprop="url">
-            
-              <span itemprop="name">Service资源清单</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-20T15:47:37+08:00" content="2019-09-20">
-          09-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/09/07/Mvideo/" itemprop="url">
-            
-              <span itemprop="name">MVideo影视自动采集系统</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T16:01:14+08:00" content="2019-09-07">
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/23/Pod_lc/" itemprop="url">
-            
-              <span itemprop="name">Pod生命周期</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-23T14:17:27+08:00" content="2019-07-23">
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/08/kubernetes安装/" itemprop="url">
-            
-              <span itemprop="name">Kubernetes集群搭建</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-08T00:05:11+08:00" content="2019-07-08">
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/06/15/hexo安装/" itemprop="url">
-            
-              <span itemprop="name">Hexo博客安装部署</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-15T22:02:12+08:00" content="2019-06-15">
-          06-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="PV和PVC的概念"><a href="#PV和PVC的概念" class="headerlink" title="PV和PVC的概念"></a>PV和PVC的概念</h2><ul>
+<li>PersistentVolume（PV）是集群中的一部分存储，已由管理员配置或使用存储类动态配置。它是群集中的资源，就像节点是群集资源一样。PV是类似于Volumes的卷插件，但是其生命周期与使用PV的任何单个Pod无关。此API对象捕获NFS，iSCSI或特定于云提供商的存储系统的存储实现的详细信息。</li>
+<li>PersistentVolumeClaim（PVC）是由用户进行存储的请求。它类似于豆荚。容器消耗节点资源，PVC消耗PV资源。Pod可以请求特定级别的资源（CPU和内存）。声明可以请求特定的大小和访问模式（例如，可以将它们安装为读/写一次或多次只读）</li>
+</ul>
+<p>PV是不能指定名称空间的，因为PV属于集群级别的资源，同样名称空间（namespace）也是集群级别的资源<br>PVC可以定义名称空间  ，pvc和pv都存储在etcd中<br>只要pv被pvc绑定着是无法直接删除pv</p>
+<p><strong>可以通过两种方式设置PV</strong></p>
+<ul>
+<li>静态：集群管理员创建许多PV。它们带有实际存储的详细信息，可供群集用户使用。它们存在于Kubernetes API中，可供使用。</li>
+<li>动态：当管理员创建的静态pv都不匹配用户的PersistentVolumeClaim时，群集可能会尝试动态地为PVC专门配置一个卷。此供应基于StorageClasses：PVC必须请求 storage class，管理员必须创建并配置了该类才能进行动态供应。</li>
+</ul>
+<p><img src="/images/k8s_pvc1.png" alt="image"><br><img src="/images/k8s_pvc2.png" alt="image"><br><img src="/images/k8s_pvc3.png" alt="image"><br><strong>PVC和PV之间是一 一对应的，但是一个pvc可以被多个pod对应，这个要取决于创建PVC的时候定义的accessModes是否支持</strong></p>
+<h2 id="创建PV"><a href="#创建PV" class="headerlink" title="创建PV"></a>创建PV</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">我们在nfs上创建几个共享目录</span><br><span class="line">[root@nfs ~]# mkdir /data/volumes/v&#123;1,2,3,4&#125;</span><br><span class="line">[root@nfs ~]# cat /etc/exports</span><br><span class="line">/data/volumes/v1    192.168.5.0/24(rw,no_root_squash)</span><br><span class="line">/data/volumes/v2    192.168.5.0/24(rw,no_root_squash)</span><br><span class="line">/data/volumes/v3    192.168.5.0/24(rw,no_root_squash)</span><br><span class="line">/data/volumes/v4    192.168.5.0/24(rw,no_root_squash)</span><br><span class="line">[root@nfs ~]# exportfs -arv                                    ##使配置生效</span><br><span class="line">exporting 192.168.5.0/24:/data/volumes/v4</span><br><span class="line">exporting 192.168.5.0/24:/data/volumes/v3</span><br><span class="line">exporting 192.168.5.0/24:/data/volumes/v2</span><br><span class="line">exporting 192.168.5.0/24:/data/volumes/v1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">[root@master pod_yaml]# cat pv.yaml</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: pv001</span><br><span class="line">  labels:                                       #可以定义标签来让pvc用标签选择器来绑定</span><br><span class="line">    name: pv001</span><br><span class="line">spec:</span><br><span class="line">  capacity:                                     #设置空间大小</span><br><span class="line">    storage: 5Gi                                 #单位(E P T G M K m)计算1000   (EI PI TI GI MI KI)计算1024</span><br><span class="line">  accessModes: [&quot;ReadWriteMany&quot;,&quot;ReadWriteOnce&quot;]   #访问模型是列表那么就可以定义很多种功能</span><br><span class="line">  persistentVolumeReclaimPolicy: Delete             #回收策略</span><br><span class="line">  nfs:</span><br><span class="line">    path: /data/volumes/v1</span><br><span class="line">    server: www.nfs.com</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: pv002</span><br><span class="line">  labels:</span><br><span class="line">    name: pv002</span><br><span class="line">spec:</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 2Gi</span><br><span class="line">  accessModes: [&quot;ReadWriteOnce&quot;]</span><br><span class="line">  nfs:</span><br><span class="line">    path: /data/volumes/v2</span><br><span class="line">    server: www.nfs.com</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: pv003</span><br><span class="line">  labels:</span><br><span class="line">    name: pv003</span><br><span class="line">spec:</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 10Gi</span><br><span class="line">  accessModes: [&quot;ReadWriteMany&quot;,&quot;ReadWriteOnce&quot;]</span><br><span class="line">  nfs:</span><br><span class="line">    path: /data/volumes/v3</span><br><span class="line">    server: www.nfs.com</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolume</span><br><span class="line">metadata:</span><br><span class="line">  name: pv004</span><br><span class="line">  labels:</span><br><span class="line">    name: pv004</span><br><span class="line">spec:</span><br><span class="line">  capacity:</span><br><span class="line">    storage: 20Gi</span><br><span class="line">  accessModes: [&quot;ReadWriteMany&quot;]</span><br><span class="line">  nfs:</span><br><span class="line">    path: /data/volumes/v4</span><br><span class="line">    server: www.nfs.com</span><br></pre></td></tr></table></figure>
+<p><strong>accessModes:访问模型</strong></p>
+<ul>
+<li>ReadWriteOnce （可以简写RWO）- 卷可以由单个节点以读写方式挂载</li>
+<li>ReadOnlyMany （可以简写ROX）- 卷可以由许多节点以只读方式挂载</li>
+<li>ReadWriteMany （可以简写RWX）- 卷可以由许多节点以读写方式挂载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@master pod_yaml]# kubectl get pv    #查看PV</span><br><span class="line">NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">pv001   5Gi        RWO,RWX        Delete           Available                                   6m31s</span><br><span class="line">pv002   2Gi        RWO            Retain           Available                                   6m31s</span><br><span class="line">pv003   10Gi       RWO,RWX        Retain           Available                                   6m31s</span><br><span class="line">pv004   20Gi       RWX            Retain           Available                                   6m31s</span><br><span class="line">注：回收策略默认Retain</span><br></pre></td></tr></table></figure>
+<p><strong>回收策略设置（Reclaim Policy）</strong></p>
+<ul>
+<li>Retain（保留）：如果下次还用就可以继续用</li>
+<li>Recycle(回收)：删除数据 把pv 空闲，可以让其他pvc使用</li>
+<li>Delete（删除）：pvc没有的时候pv直接删除</li>
+</ul>
+<h2 id="创建PVC以及Pod"><a href="#创建PVC以及Pod" class="headerlink" title="创建PVC以及Pod"></a>创建PVC以及Pod</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[root@master pod_yaml]# cat pod-pvc.yaml</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: PersistentVolumeClaim</span><br><span class="line">metadata:</span><br><span class="line">  name: mypvc</span><br><span class="line">  namespace: default</span><br><span class="line">spec:</span><br><span class="line">  accessModes: [&quot;ReadWriteMany&quot;]  ##必须在pv的accessModes的子集，就是pv有的这里才可以</span><br><span class="line">  resources:</span><br><span class="line">    requests:                  ##要求的存储空间</span><br><span class="line">      storage: 6Gi             ##要大于或等于6Gi才会绑定</span><br><span class="line">  selector:                    ##可以添加标签选择器，pv和pvc的标签一样即可绑定</span><br><span class="line">    matchLabels:</span><br><span class="line">      name: pv003</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: pod-pvc</span><br><span class="line">  namespace: default</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: myapp</span><br><span class="line">    image: ikubernetes/myapp:v1</span><br><span class="line">    imagePullPolicy: IfNotPresent</span><br><span class="line">    ports:</span><br><span class="line">    - name: http</span><br><span class="line">      containerPort: 80</span><br><span class="line">    volumeMounts:</span><br><span class="line">    - name: html</span><br><span class="line">      mountPath: /usr/share/nginx/html/</span><br><span class="line">  volumes:</span><br><span class="line">  - name: html</span><br><span class="line">    persistentVolumeClaim:</span><br><span class="line">      claimName: mypvc</span><br></pre></td></tr></table></figure>
+<p><strong>查看pv和pvc</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@master pod_yaml]# kubectl get pv</span><br><span class="line">NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM           STORAGECLASS   REASON   AGE</span><br><span class="line">pv001   5Gi        RWO,RWX        Delete           Available                                           23m</span><br><span class="line">pv002   2Gi        RWO            Retain           Available                                           23m</span><br><span class="line">pv003   10Gi       RWO,RWX        Retain           Bound       default/mypvc                           23m</span><br><span class="line">pv004   20Gi       RWX            Retain           Available                                           23m</span><br><span class="line">##可以看到pv003的status是Bound状态，被名为mypvc的pvc绑定</span><br><span class="line">[root@master pod_yaml]# kubectl get pvc</span><br><span class="line">NAME    STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">mypvc   Bound    pv003    10Gi       RWO,RWX                       4m58s</span><br><span class="line">##只会匹配pvc设置的要求大于或者相等的pv</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+<div>
+  
+    <div>
+ 
+ <div style="text-align:center;color: #ccc;font-size:20px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+ 
+</div>
+
+  
+</div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/k8s/" rel="tag"># k8s</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/05/k8s_volume/" rel="next" title="Kubernetes之Volume">
+                <i class="fa fa-chevron-left"></i> Kubernetes之Volume
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/Linux/page/2/">2</a><a class="extend next" rel="next" href="/categories/Linux/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -719,8 +652,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -864,6 +806,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PV和PVC的概念"><span class="nav-number">1.</span> <span class="nav-text">PV和PVC的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建PV"><span class="nav-number">2.</span> <span class="nav-text">创建PV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建PVC以及Pod"><span class="nav-number">3.</span> <span class="nav-text">创建PVC以及Pod</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1050,6 +1009,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -1065,6 +1028,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b55da6db2f14e186762f',
+    clientSecret: 'e3b6cbb861abd982446cf9689b414bdff0b4c6e5',
+    repo: 'jiyongkang.github.io',
+    owner: 'jiyongkang',
+    admin: ['jiyongkang'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
 
